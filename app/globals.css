@@ -1,0 +1,24 @@
+body {
+  margin: 0px;
+  height: 100vh;
+  overflow: hidden;
+  background: 
+    /* linear-gradient(192deg, rgb(251 229 220 / 30%), rgb(128 187 239 / 0%) 70.71%), 
+    linear-gradient(70deg, rgb(10 251 238), rgb(99 235 228 / 0%) 70.71%), 
+    linear-gradient(336deg, rgb(97 182 255), rgb(153 197 235 / 0%) 70.71%); */
+    linear-gradient(192deg, #FDEBE4, rgb(128 187 239 / 0%) 70.71%), 
+    linear-gradient(107deg, rgb(10 251 238), rgb(99 235 228 / 0%) 70.71%), 
+    linear-gradient(336deg, rgb(97 182 255), rgb(153 197 235 / 0%) 70.71%);
+}
+
+nav {
+  margin: 0px;
+  width: 120%;
+  height: 70px;
+  background: linear-gradient(to right, #75b2ce, #FDEBE4);
+  opacity: 55%;
+}
+
+h1 h2 h3 h4 h5 h6 p {
+  font-family: averia;
+}
