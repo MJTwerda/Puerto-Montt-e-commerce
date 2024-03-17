@@ -1,8 +1,11 @@
-import { Encode_Sans_Expanded } from "next/font/google";
 import "./globals.css";
+import { Encode_Sans_Expanded } from "next/font/google";
 
 // const inter = Inter({ subsets: ["latin"] });
-const encodeSansFont = Encode_Sans_Expanded({ weight: "400", subsets: ["latin"] });
+const encodeSansFont = Encode_Sans_Expanded({
+  weight: ['300', '400', '500', '700', '900'],
+  subsets: ["latin"]
+});
 
 export const metadata = {
   title: "Puerto Montt ecommerce",
@@ -16,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={encodeSansFont.className}>{children}</body>
+      <body className={encodeSansFont.className}>
+        {children}
+      </body>
     </html>
   );
 }

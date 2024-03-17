@@ -1,24 +1,45 @@
+:root {
+  --light-color: #FDEBE4;
+  --light-blue-color: rgb(10 251 238);
+  --blue-color: rgb(97 182 255);
+  /* Navbar */
+  --light-color-opacity: rgb(253,235,228, 0.55);
+  --start-navbar-color-opacity: rgb(117,178,206, 0.55);
+  --dark-text-color: #031c26;
+  /* Text */
+  --input-background: rgba(251, 249, 249, 0.55);
+  /* --input-font-family: */
+}
+
 body {
   margin: 0px;
   height: 100vh;
   overflow: hidden;
-  background: 
-    /* linear-gradient(192deg, rgb(251 229 220 / 30%), rgb(128 187 239 / 0%) 70.71%), 
-    linear-gradient(70deg, rgb(10 251 238), rgb(99 235 228 / 0%) 70.71%), 
-    linear-gradient(336deg, rgb(97 182 255), rgb(153 197 235 / 0%) 70.71%); */
-    linear-gradient(192deg, #FDEBE4, rgb(128 187 239 / 0%) 70.71%), 
-    linear-gradient(107deg, rgb(10 251 238), rgb(99 235 228 / 0%) 70.71%), 
-    linear-gradient(336deg, rgb(97 182 255), rgb(153 197 235 / 0%) 70.71%);
+  background:
+    linear-gradient(192deg, var(--light-color), rgb(128 187 239 / 0%) 70.71%), 
+    linear-gradient(107deg, var(--light-blue-color), rgb(99 235 228 / 0%) 70.71%), 
+    linear-gradient(336deg, var(--blue-color), rgb(153 197 235 / 0%) 70.71%);
 }
 
 nav {
-  margin: 0px;
-  width: 120%;
-  height: 70px;
-  background: linear-gradient(to right, #75b2ce, #FDEBE4);
-  opacity: 55%;
+  height: 50px;
+  background: linear-gradient(to right, var(--start-navbar-color-opacity), var(--light-color-opacity));
+  padding: 10px 30px 10px 15px; 
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
 }
 
-h1 h2 h3 h4 h5 h6 p {
-  font-family: averia;
+nav img {
+  width: 100px;
+}
+
+nav h4 {
+  font-weight: 600;
+}
+
+.search-bar {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
 }
