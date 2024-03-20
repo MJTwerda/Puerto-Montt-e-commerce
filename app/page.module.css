@@ -1,42 +1,24 @@
-.divContainerForm {
-  align-self: center;
-  width: 40%;
-}
-
-.divContainerForm form {
-  display: flex;
-  align-self: center;
-}
-
-.divContainerForm button {
-  width: 24px;
-  display: flex;
-  align-content: center;
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
-  border-left: unset;
-}
-
-.searchBar {
-  align-self: center;
-  background-color: var(--input-background);
-  font-size: large;
-  font-family: 'Encode Sans Expanded', sans-serif;
-  width: 90%;
-  height: 27px;
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
-  border-right: unset;
-}
-
-.searchIconContainer {
-  width: 10px;
-}
-
-.navigateSection {
-  width: 40%;
+.divFeaturedProduct {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  margin: 40px 30px 20px 40px; 
+}
+
+.containerProductTitle {
+  align-self: center;
+}
+
+.productTitle {
+  font-size: 70px;
+  font-weight: 100;
+  width: 80%;
+}
+
+/* Clase para botones de acción */
+.actionButtons {
+  border-radius: var(--common-border-radius);
+  width: 27%;
+  height: 33px;
+  border: unset;
 }

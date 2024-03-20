@@ -8,7 +8,8 @@
   --dark-text-color: #031c26;
   /* Text */
   --input-background: rgba(251, 249, 249, 0.55);
-  /* --input-font-family: */
+  /* Radius - commons styles */
+  --common-border-radius: 13px;
 }
 
 body {
@@ -42,4 +43,10 @@ nav h4 {
   width: 20%;
   display: flex;
   flex-direction: row;
+}
+
+/* Clase para contenedor de botones de acción. De la mano con clase .actionButtons */
+.action-buttons {
+  display: flex;
+  gap: 15px;
 }

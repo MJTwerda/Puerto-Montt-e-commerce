@@ -1,33 +1,21 @@
-import "./globals.css";
-import styles from "./page.module.css";
+import styles from './page.module.css';
+import Image from "next/image";
+import { AVAILABLE_PRODUCTS } from '../constants/products';
+import ProductDetails from "./home/productDetails";
+import { showFeaturedProduct } from '../utils/products';
 
+// Página principal, se obtiene los productos y se muestra un producto destacado
 export default function Home() {
+  const featuredProduct = showFeaturedProduct(AVAILABLE_PRODUCTS);
   return (
-    <div>
-      <nav>
-        <img src='vercel.svg' alt='e-commerce icon' />
-
-        <div className={styles.divContainerForm}>
-          <form>
-            <input
-              type="text"
-              className={styles.searchBar}
-              placeholder="Buscá productos..."
-            />
-            <button>
-              <div className={styles.searchIconContainer} aria-label="Buscar">
-              </div>
-            </button>
-          </form>
-        </div>
-
-        <div className={styles.navigateSection}>
-          <h4>Nosotros</h4>
-          <h4>Ofertas</h4>
-          <h4>Categorías</h4>
-          <h4>Comprar</h4>
-        </div>
-      </nav>
+    <div className={styles.divFeaturedProduct}>
+      <ProductDetails product={featuredProduct} showFeaturedProduct={true} />
+      <Image
+        src={`/${featuredProduct.image}.png`}
+        alt="tv"
+        width={450}
+        height={450}
+      />
     </div>
   );
 }
