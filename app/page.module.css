@@ -1,0 +1,16 @@
+.divFeaturedProduct {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 40px 30px 20px 40px; 
+}
+
+.containerProductTitle {
+  align-self: center;
+}
+
+.productTitle {
+  font-size: 70px;
+  font-weight: 100;
+  width: 80%;
+}
