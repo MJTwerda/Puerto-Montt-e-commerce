@@ -14,11 +14,3 @@
   font-weight: 100;
   width: 80%;
 }
-
-/* Clase para botones de acción */
-.actionButtons {
-  border-radius: var(--common-border-radius);
-  width: 27%;
-  height: 33px;
-  border: unset;
-}

@@ -1,19 +1,20 @@
 import styles from '../page.module.css';
+import buttonStyles from '../buttons/buttons.module.css';
 import { Product } from "../../interfaces/product";
+import MainPageButtons from '../buttons/mainPageButtons';
 
 interface Props {
   product: Product;
-  showFeaturedProduct: boolean;
 }
 
-const ProductDetails = ({ product, showFeaturedProduct }: Props) => {
+// Muestra detalles del producto en la página principal
+const ProductDetails = ({ product }: Props) => {
   return (
     <div className={styles.containerProductTitle}>
       <h1 className={styles.productTitle}>{product.name}</h1>
 
-      <div className='action-buttons'>
-        <button className={styles.actionButtons}>Comprar ahora</button>
-        <button className={styles.actionButtons}>Ver detalles</button>
+      <div className={buttonStyles.actionButtonsContainer}>
+        <MainPageButtons showButtons={['comprarAhora', 'verDetalles']} />
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ export default function Home() {
   const featuredProduct = showFeaturedProduct(AVAILABLE_PRODUCTS);
   return (
     <div className={styles.divFeaturedProduct}>
-      <ProductDetails product={featuredProduct} showFeaturedProduct={true} />
+      <ProductDetails product={featuredProduct} />
       <Image
         src={`/${featuredProduct.image}.png`}
         alt="tv"
