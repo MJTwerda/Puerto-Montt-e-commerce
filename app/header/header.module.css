@@ -44,3 +44,20 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
+.sections, .sectionActive {
+  text-decoration: none;
+  color: var(--dark-text-color);
+  font-weight: 600;
+  padding-left: 7px;
+  padding-right: 5px;
+}
+.sections:hover {
+  color: var(--btn-secondary-end-color);
+}
+
+.sectionActive {
+  background: var(--section-active-bg);
+  border-radius: var(--common-border-radius);
+  opacity: 0.9;
+}

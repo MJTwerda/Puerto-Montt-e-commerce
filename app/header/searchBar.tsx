@@ -30,10 +30,6 @@ const SearchBar = () => {
         </button>
       </form>
     </div>
-      // <div className={styles.searchContainer}>
-      //   <input type="text" className={styles.searchBar} placeholder="Buscar..." />
-      //   <button className={styles.searchButton}><i className="fas fa-search"></i></button>
-      // </div>
   )
 };
 

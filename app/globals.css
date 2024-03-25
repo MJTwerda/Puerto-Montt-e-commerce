@@ -11,8 +11,14 @@
   /* Radius - commons styles */
   --common-border-radius: 13px;
   /* Buttons */
-  --btn-primary-bg-colors: linear-gradient(to right, var(--dark-text-color), #646a7e);
-  --btn-secondary-bg-colors: linear-gradient(to right, #75b2ce, #3c4e76);
+  --btn-primary-end-color: #646a7e;
+  --btn-secondary-start-color: #75b2ce;
+  --btn-secondary-end-color: #3c4e76;
+  --btn-primary-bg-colors: linear-gradient(to right, var(--dark-text-color), var(--btn-primary-end-color));
+  --btn-secondary-bg-colors: linear-gradient(to right, var(--btn-secondary-start-color), var(--btn-secondary-end-color));
+  /* Navigation */
+  --section-active-end-bg: #fbe9e3;
+  --section-active-bg: linear-gradient(to right, var(--btn-secondary-start-color), var(--section-active-end-bg));
 }
 
 body {
@@ -36,10 +42,6 @@ nav {
 
 nav img {
   width: 100px;
-}
-
-nav h4 {
-  font-weight: 600;
 }
 
 .search-bar {
