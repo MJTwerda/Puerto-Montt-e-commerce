@@ -15,9 +15,9 @@
 }
 
 .buyNowButton {
-  background: linear-gradient(to right, var(--dark-text-color), #646a7e);
+  background: var(--btn-primary-bg-colors);
 }
 
 .showDetailsButton {
-  background: linear-gradient(to right, #75b2ce, #3c4e76);
+  background: var(--btn-secondary-bg-colors);
 }

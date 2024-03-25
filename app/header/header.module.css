@@ -8,15 +8,6 @@
   align-self: center;
 }
 
-.divContainerForm button {
-  width: 24px;
-  display: flex;
-  align-content: center;
-  border-top-right-radius: var(--common-border-radius);
-  border-bottom-right-radius: var(--common-border-radius);
-  border-left: unset;
-}
-
 .searchBar {
   align-self: center;
   background-color: var(--input-background);
@@ -27,10 +18,23 @@
   border-top-left-radius: var(--common-border-radius);
   border-bottom-left-radius: var(--common-border-radius);
   border-right: unset;
+  border: none;
 }
 
-.searchIconContainer {
-  width: 10px;
+.searchIconButton {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: var(--common-border-radius);
+  border-bottom-right-radius: var(--common-border-radius);
+  border-left: unset;
+  border: none;
+}
+
+.searchBar:focus, .searchIconButton:focus {
+  outline: 0.5px solid #763c3c;
+  outline-color: #3c4e76;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
 }
 
 .navigateSection {
