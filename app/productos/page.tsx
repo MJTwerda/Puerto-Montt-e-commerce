@@ -1,9 +1,9 @@
 const CategoriesPage = () => {
   return (
     <div>
-      <h1>Categorías</h1>
+      <h1>Productos</h1>
       <hr />
-      <p>Contenido de la sección de Categorías</p>
+      <p>Contenido de la sección de Productos</p>
     </div>
   )
 };
