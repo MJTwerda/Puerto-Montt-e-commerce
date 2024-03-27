@@ -1,5 +1,4 @@
 'use client'
-import buttonStyles from './buttons.module.css';
 import { POSSIBLE_BUTTONS } from '../../utils/commonButtonActions';
 
 interface Props {
@@ -18,7 +17,8 @@ const MainPageButtons = ({ showButtons }: Props) => {
           <button
             key={button}
             onClick={POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].action}
-            className={buttonStyles[POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].className]}>
+            className={POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].className}
+            >
             {POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].name}
           </button>
         ) : null

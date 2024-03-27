@@ -11,11 +11,11 @@ export const POSSIBLE_BUTTONS = {
   comprarAhora: {
     name: 'Comprar ahora',
     action: handleBuyNow,
-    className: 'buyNowButton'
+    className: 'primary-button'
   },
   verDetalles: {
     name: 'Ver detalles',
     action: handleShowDetails,
-    className: 'showDetailsButton'
+    className: 'secondary-button'
   }
 };

@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 40px 30px 20px 40px; 
 }
 
 .containerProductTitle {
@@ -13,4 +12,10 @@
   font-size: 70px;
   font-weight: 100;
   width: 80%;
+}
+
+/* Clase para contenedor de botones de acción. De la mano con clase .actionButtons */
+.actionButtonsContainer {
+  display: flex;
+  gap: 15px;
 }

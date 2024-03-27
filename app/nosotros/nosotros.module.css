@@ -1,0 +1,25 @@
+.divContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.contactTitle {
+  font-size: xx-large;
+  font-weight: 300;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer textarea {
+  height: 140px;
+  resize: none; 
+}
+
+.field {
+  margin-bottom: 12px;
+  border-radius: var(--common-border-radius);
+}

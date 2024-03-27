@@ -8,6 +8,7 @@
   --dark-text-color: #031c26;
   /* Text */
   --input-background: rgba(251, 249, 249, 0.55);
+  --input-background-light: rgba(251, 249, 249);
   /* Radius - commons styles */
   --common-border-radius: 13px;
   /* Buttons */
@@ -31,6 +32,10 @@ body {
     linear-gradient(336deg, var(--blue-color), rgb(153 197 235 / 0%) 70.71%);
 }
 
+.container-children {
+  margin: 40px 30px 20px 40px; 
+}
+
 nav {
   height: 50px;
   background: linear-gradient(to right, var(--start-navbar-color-opacity), var(--light-color-opacity));
@@ -44,12 +49,46 @@ nav img {
   width: 100px;
 }
 
+/* Relacionado a botones */
+button:hover, input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.submit-button, .primary-button, .secondary-button {
+  border-radius: var(--common-border-radius);
+  width: 27%;
+  height: 33px;
+  border: unset;
+  color: white;
+}
+
+.submit-button, .primary-button {
+  background: var(--btn-primary-bg-colors);
+}
+
+.secondary-button {
+  background: var(--btn-secondary-bg-colors);
+}
+
+/* Relacionado a inputs */
 .search-bar {
   width: 20%;
   display: flex;
   flex-direction: row;
 }
 
-button:hover {
-  cursor: pointer;
+input, textarea {
+  align-self: center;
+  background-color: var(--input-background-light);
+  font-size: large;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  width: 90%;
+  height: 27px;
+  border: none;
+}
+
+input:focus, textarea:focus, button:focus {
+  outline: 0.5px solid #763c3c;
+  outline-color: #3c4e76;
+  box-shadow: 0 0 5px var(--dark-text-color);
 }

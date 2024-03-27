@@ -21,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={encodeSansFont.className}>
         <Header />
-        {children}
+        <div className="container-children">
+          {children}
+        </div>
       </body>
     </html>
   );

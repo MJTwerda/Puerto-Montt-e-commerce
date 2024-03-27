@@ -19,7 +19,7 @@ const SearchBar = () => {
     <div className={styles.divContainerForm}>
       <form>
         <input
-          type="text"
+          type="search"
           className={styles.searchBar}
           placeholder="Buscá productos..."
           onChange={handleChange}

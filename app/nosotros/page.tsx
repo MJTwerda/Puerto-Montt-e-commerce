@@ -1,9 +1,12 @@
+import styles from './nosotros.module.css';
+import ContactForm from './contactForm';
+import NosostrosInfo from './nosotrosInfo';
+
 const OurPage = () => {
   return (
-    <div>
-      <h1>Nosotros</h1>
-      <hr />
-      <p>Contenido de la sección de Nosotros</p>
+    <div className={styles.divContainer}>
+      <ContactForm />
+      <NosostrosInfo />
     </div>
   )
 };
