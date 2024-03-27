@@ -71,6 +71,10 @@ button:hover, input[type="submit"]:hover {
 }
 
 /* Relacionado a inputs */
+::placeholder {
+  padding-left: 7px;
+}
+
 .search-bar {
   width: 20%;
   display: flex;
