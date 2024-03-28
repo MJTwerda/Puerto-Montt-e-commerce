@@ -8,7 +8,7 @@ interface Props {
 }
 
 // Muestra detalles del producto en la página principal
-const ProductDetails = ({ product }: Props) => {
+const FeaturedProduct = ({ product }: Props) => {
   return (
     <div className={styles.containerProductTitle}>
       <h1 className={styles.productTitle}>{product.name}</h1>
@@ -20,4 +20,4 @@ const ProductDetails = ({ product }: Props) => {
   )
 };
 
-export default ProductDetails;
+export default FeaturedProduct;
