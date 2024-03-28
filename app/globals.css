@@ -3,8 +3,8 @@
   --light-blue-color: rgb(10 251 238);
   --blue-color: rgb(97 182 255);
   /* Navbar */
-  --light-color-opacity: rgb(253,235,228, 0.55);
-  --start-navbar-color-opacity: rgb(117,178,206, 0.55);
+  --light-color-opacity: rgb(253, 235, 228, 0.55);
+  --start-navbar-color-opacity: rgb(117, 178, 206, 0.55);
   --dark-text-color: #031c26;
   /* Text */
   --input-background: rgba(251, 249, 249, 0.55);
@@ -27,19 +27,19 @@ body {
   height: 100vh;
   overflow: hidden;
   background:
-    linear-gradient(192deg, var(--light-color), rgb(128 187 239 / 0%) 70.71%), 
-    linear-gradient(107deg, var(--light-blue-color), rgb(99 235 228 / 0%) 70.71%), 
+    linear-gradient(192deg, var(--light-color), rgb(128 187 239 / 0%) 70.71%),
+    linear-gradient(107deg, var(--light-blue-color), rgb(99 235 228 / 0%) 70.71%),
     linear-gradient(336deg, var(--blue-color), rgb(153 197 235 / 0%) 70.71%);
 }
 
 .container-children {
-  margin: 40px 30px 20px 40px; 
+  margin: 40px 30px 20px 40px;
 }
 
 nav {
   height: 50px;
   background: linear-gradient(to right, var(--start-navbar-color-opacity), var(--light-color-opacity));
-  padding: 10px 30px 10px 15px; 
+  padding: 10px 30px 10px 15px;
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -50,11 +50,14 @@ nav img {
 }
 
 /* Relacionado a botones */
-button:hover, input[type="submit"]:hover {
+button:hover,
+input[type="submit"]:hover {
   cursor: pointer;
 }
 
-.submit-button, .primary-button, .secondary-button {
+.submit-button,
+.primary-button,
+.secondary-button {
   border-radius: var(--common-border-radius);
   width: 27%;
   height: 33px;
@@ -62,7 +65,8 @@ button:hover, input[type="submit"]:hover {
   color: white;
 }
 
-.submit-button, .primary-button {
+.submit-button,
+.primary-button {
   background: var(--btn-primary-bg-colors);
 }
 
@@ -78,7 +82,11 @@ button:hover, input[type="submit"]:hover {
   padding-left: 10px;
 }
 
-input, textarea {
+input[type=text],
+input[type=email],
+input[type=submit],
+input[type=search],
+textarea {
   align-self: center;
   background-color: var(--input-background-light);
   font-size: large;
@@ -89,8 +97,21 @@ input, textarea {
   padding-left: 10px;
 }
 
-input:focus, textarea:focus, button:focus {
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=submit]:focus,
+input[type=search]:focus,
+textarea:focus,
+button:focus {
   outline: 0.5px solid #763c3c;
   outline-color: #3c4e76;
   box-shadow: 0 0 5px var(--dark-text-color);
+}
+
+input[type=checkbox] {
+  align-self: center;
+}
+input[type=checkbox]:checked {
+  background-color: red;
+  border-color: red;
 }
