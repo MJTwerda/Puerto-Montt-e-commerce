@@ -4,6 +4,7 @@
   justify-content: space-evenly;
 }
 
+/* Columna de Mensaje */
 .contactTitle {
   font-size: xx-large;
   font-weight: 300;
@@ -22,4 +23,21 @@
 .field {
   margin-bottom: 12px;
   border-radius: var(--common-border-radius);
+}
+
+/* Columna de Información de Contacto */
+.contactContainer {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.socialMediaContainer {
+  display: flex;
+  flex-direction: row;
+}
+.socialMediaIcon {
+  align-self: center;
+  margin-right: 7px;
 }
