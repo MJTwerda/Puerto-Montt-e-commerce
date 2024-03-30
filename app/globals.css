@@ -24,8 +24,9 @@
 
 body {
   margin: 0px;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  /* overflow: hidden; */
+  overflow-y: auto;
   background:
     linear-gradient(192deg, var(--light-color), rgb(128 187 239 / 0%) 70.71%),
     linear-gradient(107deg, var(--light-blue-color), rgb(99 235 228 / 0%) 70.71%),

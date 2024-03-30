@@ -1,4 +1,4 @@
-.productLayoutContainer {
+.productPageContainer {
   display: flex;
   flex-direction: row;
 }
@@ -25,4 +25,16 @@
 .categoryItem {
   display: flex;
   flex-direction: row;
+}
+
+.productListContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.productItem {
+  margin: 0 25px 10px 25px;
 }

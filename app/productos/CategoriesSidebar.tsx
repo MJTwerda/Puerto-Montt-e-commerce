@@ -11,13 +11,14 @@ const CategoriesSidebar = ({ selectedCategories, handleFilterCategories }: Props
   return (
     <div className={styles.sidebarContainer}>
       {Object.keys(MOCK_CATEGORIES).map(category => (
-        <div key={category} className={styles.categoryItem}>
+        <div key={MOCK_CATEGORIES[category].value} className={styles.categoryItem}>
           <input 
             type='checkbox' 
             onClick={handleFilterCategories} 
-            value={category}
+            value={MOCK_CATEGORIES[category].value}
+            defaultChecked={MOCK_CATEGORIES[category].value === 'todos'}
           />
-          <p>{MOCK_CATEGORIES[category]}</p>
+          <p>{MOCK_CATEGORIES[category].label}</p>
         </ div>
       ))}
     </div>
