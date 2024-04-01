@@ -31,9 +31,9 @@ const DetailsActions = ({ product }: Props) => {
       <h3>{product.name}</h3>
       <hr />
       <h2>${buyDetails.price}</h2>
-      <div className={styles.actions}>
+      <div className={styles.actionsContainer}>
         <button 
-          className="buy-action"
+          className="product-count-button"
           onClick={() => handleChangeProductCount(POSSIBLE_ACTIONS.subtract)}
           disabled={buyDetails.count === 1}
         >
@@ -41,12 +41,13 @@ const DetailsActions = ({ product }: Props) => {
         </button>
         <h3 className={styles.productCount}>{buyDetails.count}</h3>
         <button 
-          className="buy-action"
+          className="product-count-button"
           onClick={() => handleChangeProductCount(POSSIBLE_ACTIONS.add)}
         >
           <IoIosAddCircleOutline />
         </button>
       </div>
+      <button className="add-to-cart-button">Agregar a carrito</button>
     </div>
   )
 };

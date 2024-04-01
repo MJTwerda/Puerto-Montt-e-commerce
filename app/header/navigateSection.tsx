@@ -2,12 +2,13 @@
 import styles from "./header.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ImCart } from "react-icons/im";
 
 // Diferentes secciones en el Header de navegación
-const SECTIONS: {title: string; href: string}[] = [
-  { title: 'Inicio', href: '/' },
-  { title: 'Nosotros', href: '/about-us' },
-  { title: 'Productos', href: '/products' }
+const SECTIONS: { title: string; href: string; icon: boolean }[] = [
+  { title: 'Inicio', href: '/', icon: false },
+  { title: 'Nosotros', href: '/about-us', icon: false },
+  { title: 'Productos', href: '/products', icon: false }
 ];
 
 const NavigateSection = () => {
@@ -24,6 +25,12 @@ const NavigateSection = () => {
           {section.title}
         </Link>
       ))}
+      <Link
+        href='/cart'
+        className={pathName === '/cart' ? styles.sectionActive : styles.sections}
+      >
+        <ImCart />
+      </Link>
     </div>
   )
 };

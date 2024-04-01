@@ -42,6 +42,7 @@
 
 .productItem, .detailCard {
   background: var(--card-product-details);
+  width: 220px;
   margin: 0 25px 10px 25px;
   padding: 15px; /* Añade un relleno para separar el contenido del borde */
   border: 1px solid rgba(0, 0, 0, 0.1); /* Añade un borde con color */
@@ -77,9 +78,10 @@
   width: 50%;
 }
 
-.actions {
+.actionsContainer {
   display: flex;
   flex-direction: row;
+  margin-bottom: 27px;
 }
 .productCount {
   text-align: center;

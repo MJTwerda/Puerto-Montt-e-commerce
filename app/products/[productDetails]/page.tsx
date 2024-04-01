@@ -22,7 +22,7 @@ const ProductDetails = ({ params }: Props) => {
   useEffect(() => {
     const decodedProductName = decodeURIComponent(params.productDetails);
     //  
-    if (/^[a-zA-Z0-9\sáéíóúÁÉÍÓÚüÜ.,_'-]*$/.test(decodedProductName)) {
+    if (/^[a-zA-Z0-9\sáéíóúÁÉÍÓÚüÜñÑ+°.,_'-]*$/.test(decodedProductName)) {
       const matchedProduct = AVAILABLE_PRODUCTS.find(product => product.name === replaceChar(decodedProductName, '-', '/'));
       matchedProduct ? setProductDetail(matchedProduct) : null;
     }

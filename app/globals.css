@@ -59,7 +59,8 @@ input[type="submit"]:hover {
 
 .submit-button,
 .back-button,
-.buy-action,
+.product-count-button,
+.add-to-cart-button,
 .primary-button,
 .secondary-button {
   border-radius: var(--common-border-radius);
@@ -70,11 +71,12 @@ input[type="submit"]:hover {
 }
 
 .submit-button,
+.add-to-cart-button,
 .primary-button {
   background: var(--btn-primary-bg-colors);
 }
 
-.buy-action,
+.product-count-button,
 .back-button, 
 .secondary-button {
   background: var(--btn-secondary-bg-colors);
@@ -85,12 +87,16 @@ input[type="submit"]:hover {
   height: 23px;
 }
 
-.buy-action {
+.product-count-button {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 17%;
   height: 23px;
+}
+
+.add-to-cart-button {
+  width: 44%;
 }
 
 /* Relacionado a inputs */

@@ -1,0 +1,8 @@
+.formContainer {
+  width: 50%;
+}
+
+.field {
+  margin-bottom: 12px;
+  border-radius: var(--common-border-radius);
+}

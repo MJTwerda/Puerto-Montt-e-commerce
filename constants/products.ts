@@ -18,7 +18,7 @@ export const MOCK_CATEGORIES: {
 
 export const AVAILABLE_PRODUCTS: Array<Product> = [
   {
-    name: "Dalewo frío/calor",
+    name: "Candv frío/calor 3000 cal 1 año de garantía",
     image: "aire",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
@@ -26,7 +26,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.ventilacion.value,
   },
   {
-    name: "Lorem Ipsum b49",
+    name: "Lorem Ipsum b49 4 hornallas + horno con encendedor eléctrico",
     image: "cocinaOscura",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
@@ -34,7 +34,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.cocina.value,
   },
   {
-    name: "Partik g749",
+    name: "Partik g749 3 hornallas con horno de tres pizos y medidor de temperatura 320 C° máx",
     image: "cocinaRosa",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
@@ -42,7 +42,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.cocina.value,
   },
   {
-    name: "Phillko B1 con freezer",
+    name: "Phillko B1 con freezer 220v color rosa",
     image: "heladeraVioleta",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
@@ -50,7 +50,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.heladeras.value,
   },
   {
-    name: "Sorny 42''",
+    name: "Sorny Led 42'' 4k Google Tv Streaming",
     image: "teleMarron",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
@@ -66,7 +66,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.televisores.value,
   },
   {
-    name: "Iliana turbo b5b",
+    name: "Iliana turbo b5b de piso negro con 3 palas 220v 20 diámetro",
     image: "ventilador",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
