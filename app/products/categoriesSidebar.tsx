@@ -4,10 +4,9 @@ import styles from './products.module.css';
 import { MOCK_CATEGORIES } from '../../constants/products';
 
 interface Props {
-  selectedCategories: string[];
   handleFilterCategories: (event: any) => void;
 }
-const CategoriesSidebar = ({ selectedCategories, handleFilterCategories }: Props) => {
+const CategoriesSidebar = ({ handleFilterCategories }: Props) => {
   return (
     <div className={styles.sidebarContainer}>
       {Object.keys(MOCK_CATEGORIES).map(category => (

@@ -3,10 +3,11 @@ import styles from "./header.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Diferentes secciones en el Header de navegación
 const SECTIONS: {title: string; href: string}[] = [
   { title: 'Inicio', href: '/' },
-  { title: 'Nosotros', href: '/nosotros' },
-  { title: 'Productos', href: '/productos' }
+  { title: 'Nosotros', href: '/about-us' },
+  { title: 'Productos', href: '/products' }
 ];
 
 const NavigateSection = () => {

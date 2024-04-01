@@ -1,7 +1,7 @@
 import styles from './page.module.css';
 import Image from "next/image";
 import { AVAILABLE_PRODUCTS } from '../constants/products';
-import FeaturedProduct from "./productos/featuredProduct";
+import FeaturedProduct from "./products/featuredProduct";
 import { showFeaturedProduct } from '../utils/products';
 
 export const metadata = {

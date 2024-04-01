@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import styles from './nosotros.module.css';
+import styles from './about.module.css';
 
 const ContactForm = () => {
 

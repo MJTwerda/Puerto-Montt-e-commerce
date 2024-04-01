@@ -28,7 +28,7 @@ const ProductList = ({ selectedCategories }: Props) => {
               width={220}
               height={220}
             />
-            <h5>{product.price}</h5>
+            <h3 className={styles.productPrice}>{product.price}</h3>
           </div>
         ))}
       </section>

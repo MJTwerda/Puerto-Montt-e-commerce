@@ -17,6 +17,7 @@
   --btn-secondary-end-color: #3c4e76;
   --btn-primary-bg-colors: linear-gradient(to right, var(--dark-text-color), var(--btn-primary-end-color));
   --btn-secondary-bg-colors: linear-gradient(to right, var(--btn-secondary-start-color), var(--btn-secondary-end-color));
+  --card-product-details: rgba(251, 249, 249, 0.35);
   /* Navigation */
   --section-active-end-bg: #fbe9e3;
   --section-active-bg: linear-gradient(to right, var(--btn-secondary-start-color), var(--section-active-end-bg));

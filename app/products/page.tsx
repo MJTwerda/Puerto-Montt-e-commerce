@@ -21,7 +21,6 @@ const ProductListPage = () => {
   return (
     <section className={styles.productPageContainer}>
       <CategoriesSidebar
-        selectedCategories={selectedCategories}
         handleFilterCategories={handleFilterCategories}
       />
       <ProductList selectedCategories={selectedCategories} />

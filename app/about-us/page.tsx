@@ -1,6 +1,6 @@
-import styles from './nosotros.module.css';
+import styles from './about.module.css';
 import ContactForm from './contactForm';
-import NosostrosInfo from './nosotrosInfo';
+import NosostrosInfo from './aboutInfo';
 
 export const metadata = {
   title: 'Puerto Montt - Nosotros',
