@@ -58,6 +58,8 @@ input[type="submit"]:hover {
 }
 
 .submit-button,
+.back-button,
+.buy-action,
 .primary-button,
 .secondary-button {
   border-radius: var(--common-border-radius);
@@ -72,8 +74,23 @@ input[type="submit"]:hover {
   background: var(--btn-primary-bg-colors);
 }
 
+.buy-action,
+.back-button, 
 .secondary-button {
   background: var(--btn-secondary-bg-colors);
+}
+
+.back-button {
+  width: 7%;
+  height: 23px;
+}
+
+.buy-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  height: 23px;
 }
 
 /* Relacionado a inputs */

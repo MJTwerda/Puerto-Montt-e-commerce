@@ -3,7 +3,7 @@ import ContactForm from './contactForm';
 import NosostrosInfo from './aboutInfo';
 
 export const metadata = {
-  title: 'Puerto Montt - Nosotros',
+  title: 'Puerto Montt - About us',
   description: 'Our contact info'
 }
 

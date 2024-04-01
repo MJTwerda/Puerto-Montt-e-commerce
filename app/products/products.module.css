@@ -1,3 +1,8 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .productPageContainer {
   display: flex;
   flex-direction: row;
@@ -35,7 +40,7 @@
   width: 100%;
 }
 
-.productItem {
+.productItem, .detailCard {
   background: var(--card-product-details);
   margin: 0 25px 10px 25px;
   padding: 15px; /* Añade un relleno para separar el contenido del borde */
@@ -53,4 +58,30 @@
 
 .productPrice {
   text-align: center;
+}
+
+/* Product details Page */
+.detailCard {
+  margin-top: 27px;
+  width: 70%;
+  align-self: center;
+}
+
+.headerDetails {
+  display: flex;
+  flex-direction: row;
+}
+
+.detailsSection {
+  margin-left: 27px;
+  width: 50%;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+}
+.productCount {
+  text-align: center;
+  margin: 0 17px 0 17px;
 }

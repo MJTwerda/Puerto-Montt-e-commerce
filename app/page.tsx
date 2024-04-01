@@ -5,8 +5,8 @@ import FeaturedProduct from "./products/featuredProduct";
 import { showFeaturedProduct } from '../utils/products';
 
 export const metadata = {
-  title: 'Puerto Montt - Product detail',
-  description: 'Product detail page'
+  title: 'Puerto Montt - Home',
+  description: 'Featured product page'
 }
 // Página principal, se obtiene los productos y se muestra un producto destacado
 export default function Home() {

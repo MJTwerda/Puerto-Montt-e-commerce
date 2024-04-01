@@ -1,26 +1,26 @@
 'use client'
 import React from "react";
 import styles from './products.module.css';
-import { MOCK_CATEGORIES, AVAILABLE_PRODUCTS } from '../../constants/products';
 import Image from "next/image";
+import { Product } from '../../interfaces/product';
 
 interface Props {
-  selectedCategories: string[];
+  filteredProductList: Product[];
+  handleNavigateToDetails: (productName: string) => void;
 }
 
-const ProductList = ({ selectedCategories }: Props) => {
-
-  // Si el checkbox 'Todos' está clickeado se mostrarán todos los productos disponibles
-  const filteredProductList =
-    !selectedCategories.length || selectedCategories.includes(MOCK_CATEGORIES.todos.value) ? AVAILABLE_PRODUCTS :
-      AVAILABLE_PRODUCTS.filter(product => selectedCategories.includes(product.category));
+const ProductList = ({ filteredProductList, handleNavigateToDetails }: Props) => {
 
   return (
     <div>
       <h1>Productos</h1>
       <section className={styles.productListContainer}>
         {filteredProductList.map(product => (
-          <div key={product.name} className={styles.productItem}>
+          <div 
+            key={product.name} 
+            className={styles.productItem}
+            onClick={() => handleNavigateToDetails(product.name)}
+          >
             <h3>{product.name}</h3>
             <Image
               src={`/${product.image}.png`}
@@ -28,7 +28,7 @@ const ProductList = ({ selectedCategories }: Props) => {
               width={220}
               height={220}
             />
-            <h3 className={styles.productPrice}>{product.price}</h3>
+            <h3 className={styles.productPrice}>${product.price}</h3>
           </div>
         ))}
       </section>
