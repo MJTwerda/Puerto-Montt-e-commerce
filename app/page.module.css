@@ -9,7 +9,7 @@
   width: 50%;
 }
 
-.productTitle {
+.productTitle, .notFoundTitle {
   font-size: 70px;
   font-weight: 100;
   width: 80%;
@@ -19,4 +19,13 @@
 .actionButtonsContainer {
   display: flex;
   gap: 15px;
+}
+
+.notFoundContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.notFoundTitle {
+  text-align: center;
 }

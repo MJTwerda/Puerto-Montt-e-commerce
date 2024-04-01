@@ -21,14 +21,14 @@ const ProductList = ({ filteredProductList, handleNavigateToDetails }: Props) =>
             className={styles.productItem}
             onClick={() => handleNavigateToDetails(product.name)}
           >
-            <h3>{product.name}</h3>
             <Image
               src={`/${product.image}.png`}
               alt="featured product"
               width={220}
               height={220}
             />
-            <h3 className={styles.productPrice}>${product.price}</h3>
+            <h5 className={styles.productCardInfo}>{product.name}</h5>
+            <h3 className={styles.productCardInfo}>${product.price}</h3>
           </div>
         ))}
       </section>

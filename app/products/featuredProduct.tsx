@@ -1,6 +1,6 @@
 import styles from '../page.module.css';
 import { Product } from "../../interfaces/product";
-import MainPageButtons from '../buttons/mainPageButtons';
+import MainPageButtons from './mainPageButtons';
 
 interface Props {
   product: Product;
@@ -13,7 +13,7 @@ const FeaturedProduct = ({ product }: Props) => {
       <h1 className={styles.productTitle}>{product.name}</h1>
 
       <div className={styles.actionButtonsContainer}>
-        <MainPageButtons showButtons={['comprarAhora', 'verDetalles']} />
+        <MainPageButtons showButtons={['comprarAhora', 'verDetalles']} productName={product.name} />
       </div>
     </div>
   )

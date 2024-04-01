@@ -22,7 +22,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "aire",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 88999,
     category: MOCK_CATEGORIES.ventilacion.value,
   },
   {
@@ -30,7 +30,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "cocinaOscura",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 91299,
     category: MOCK_CATEGORIES.cocina.value,
   },
   {
@@ -38,7 +38,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "cocinaRosa",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 105000,
     category: MOCK_CATEGORIES.cocina.value,
   },
   {
@@ -46,7 +46,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "heladeraVioleta",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 121999,
     category: MOCK_CATEGORIES.heladeras.value,
   },
   {
@@ -54,7 +54,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "teleMarron",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 65499,
     category: MOCK_CATEGORIES.televisores.value,
   },
   {
@@ -62,7 +62,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "telePlana",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 79999,
     category: MOCK_CATEGORIES.televisores.value,
   },
   {
@@ -70,7 +70,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     image: "ventilador",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rutrum odio at fermentum imperdiet. Etiam eget eleifend sapien, vel pulvinar metus. Integer varius rutrum tellus, at vehicula dolor dictum eu. Maecenas justo massa, dignissim at tempor sit amet, commodo vel massa. Etiam sem tortor, laoreet porta molestie nec, lobortis et metus.",
-    price: 100,
+    price: 24249,
     category: MOCK_CATEGORIES.ventilacion.value,
   },
 ];
