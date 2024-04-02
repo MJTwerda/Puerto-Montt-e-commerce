@@ -1,6 +1,11 @@
 import React from "react";
 import PurchaseForm from './purchaseForm';
 
+export const metadata = {
+  title: 'Puerto Montt - Carrito de compras',
+  description: 'Carrito con información de la compra actual'
+}
+
 const Cart = () => {
   return (
     <section>
