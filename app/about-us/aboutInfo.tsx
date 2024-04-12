@@ -10,7 +10,7 @@ const NosostrosInfo = () => {
         <section key={infoSection.slug}>
           <h3>{infoSection.title}</h3>
           {infoSection.infoList.map(item => (
-            <div className={styles.socialMediaContainer}>
+            <div key={item.slug} className={styles.socialMediaContainer}>
               {item.icon && (
                 <Image
                   alt={item.info}

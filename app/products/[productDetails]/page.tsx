@@ -1,22 +1,23 @@
 import React from "react";
 import ProductDetailCard from './detailCard';
+import { INTERNAL_API_URL } from '../../../constants/commons';
 
-interface MetadataParam {
-  params: { productDetails: string; }
-}
-export async function generateMetadata({ params }: MetadataParam) {
-  return {
-    title: `Puerto Montt - Product details`,
-    description: `${params.productDetails} details`
-  }
-}
+export const metadata = {
+  title: `Puerto Montt - Product details`,
+  description: 'View product details'
+};
+
 interface Props {
   params: { productDetails: string };
 }
 
-const ProductDetails = ({ params }: Props) => {
+const ProductDetails = async({ params }: Props) => {
+  const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productDetails}`, {
+    cache: 'no-store'
+  }).then(result => result.json());
+
   return (
-    <ProductDetailCard productDetailsParam={params.productDetails} />
+    <ProductDetailCard productDetailsParam={productDetails} />
   );
 };
 export default ProductDetails;

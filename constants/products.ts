@@ -18,6 +18,7 @@ export const MOCK_CATEGORIES: {
 
 export const AVAILABLE_PRODUCTS: Array<Product> = [
   {
+    id: 'b13ced41-3ab7-4f47-800f-298197609a20',
     name: "Candv frío/calor 3000 cal 1 año de garantía",
     image: "aire",
     description:
@@ -26,6 +27,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.ventilacion.value,
   },
   {
+    id: 'b14ced41-3ab7-4f47-800f-298197609a21',
     name: "Lorem Ipsum b49 4 hornallas + horno con encendedor eléctrico",
     image: "cocinaOscura",
     description:
@@ -34,6 +36,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.cocina.value,
   },
   {
+    id: 'b15ced41-3ab7-4f47-800f-298197609a22',
     name: "Partik g749 3 hornallas con horno de tres pizos y medidor de temperatura 320 C° máx",
     image: "cocinaRosa",
     description:
@@ -42,6 +45,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.cocina.value,
   },
   {
+    id: 'b16ced41-3ab7-4f47-800f-298197609a23',
     name: "Phillko B1 con freezer 220v color rosa",
     image: "heladeraVioleta",
     description:
@@ -50,6 +54,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.heladeras.value,
   },
   {
+    id: 'b17ced41-3ab7-4f47-800f-298197609a24',
     name: "Sorny Led 42'' 4k Google Tv Streaming",
     image: "teleMarron",
     description:
@@ -58,6 +63,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.televisores.value,
   },
   {
+    id: 'b18ced41-3ab7-4f47-800f-298197609a25',
     name: "Sanson g44''",
     image: "telePlana",
     description:
@@ -66,6 +72,7 @@ export const AVAILABLE_PRODUCTS: Array<Product> = [
     category: MOCK_CATEGORIES.televisores.value,
   },
   {
+    id: 'b19ced41-3ab7-4f47-800f-298197609a26',
     name: "Iliana turbo b5b de piso negro con 3 palas 220v 20 diámetro",
     image: "ventilador",
     description:

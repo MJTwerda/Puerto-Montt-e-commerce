@@ -1,12 +1,27 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import styles from './about.module.css';
+import axios from "axios";
+import { INTERNAL_API_URL } from '../../constants/commons';
 
 const ContactForm = () => {
+  const [ formValue, setFormValue ] = useState({
+    email: '',
+    message: ''
+  });
 
-  const handleSubmitMessage = (event: any) => {
+  const handleInputChange = (e: any) => {
+    setFormValue({...formValue, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmitMessage = async(event: any) => {
     event.preventDefault();
-    alert('Mensaje enviado! en breve nos pondremos en contacto')
+    const sendMessage = await axios(`${INTERNAL_API_URL}/about-us`, {
+      method: 'POST',
+      data: formValue
+    });
+    console.log('🟣 sendMessage: ', sendMessage);
+    alert('Mensaje enviado! en breve nos pondremos en contacto');
   }
 
   return (
@@ -20,13 +35,15 @@ const ContactForm = () => {
           required 
           className={styles.field}
           placeholder="Tu email"
+          onChange={handleInputChange}
         />
 
         <textarea 
-          name="mensaje" 
+          name="message" 
           required 
           className={styles.field}
           placeholder="Déjanos un mensaje"
+          onChange={handleInputChange}
         />
 
         <input type="submit" value="Enviar" className="submit-button" />

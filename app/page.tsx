@@ -10,7 +10,9 @@ export const metadata = {
 }
 // Página principal, se obtiene los productos y se muestra un producto destacado
 export default function Home() {
+  // Busca un producto random para mostrar en la página de inicio
   const featuredProduct = showFeaturedProduct(AVAILABLE_PRODUCTS);
+
   return (
     <div className={styles.divFeaturedProduct}>
       <FeaturedProduct product={featuredProduct} />

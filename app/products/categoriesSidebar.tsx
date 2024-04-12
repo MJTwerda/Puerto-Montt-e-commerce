@@ -5,17 +5,18 @@ import { MOCK_CATEGORIES } from '../../constants/products';
 
 interface Props {
   handleFilterCategories: (event: any) => void;
+  selectedCategories: string[];
 }
-const CategoriesSidebar = ({ handleFilterCategories }: Props) => {
+const CategoriesSidebar = ({ handleFilterCategories, selectedCategories }: Props) => {
   return (
     <div className={styles.sidebarContainer}>
       {Object.keys(MOCK_CATEGORIES).map(category => (
         <div key={MOCK_CATEGORIES[category].value} className={styles.categoryItem}>
           <input 
             type='checkbox' 
-            onClick={handleFilterCategories} 
+            onChange={handleFilterCategories} 
             value={MOCK_CATEGORIES[category].value}
-            defaultChecked={MOCK_CATEGORIES[category].value === 'todos'}
+            checked={selectedCategories.includes(MOCK_CATEGORIES[category].value)}
           />
           <p>{MOCK_CATEGORIES[category].label}</p>
         </ div>

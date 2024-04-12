@@ -1,18 +1,17 @@
 'use client'
 import { POSSIBLE_BUTTONS } from '../../utils/commonButtonActions';
 import { useRouter } from "next/navigation";
-import { replaceChar } from '../../utils/products';
 
 interface Props {
   showButtons: string[]; // Define qué botones se van a mostrar en la página
-  productName: string
+  productId: string
 }
 
 /**
  * Recorre el array showButtons, y si la key matchea con alguno de los POSSIBLE_BUTTONS muestra
  * un botón con las propiedades del botón matcheado
  */
-const MainPageButtons = ({ showButtons, productName }: Props) => {
+const MainPageButtons = ({ showButtons, productId }: Props) => {
   const router = useRouter();
 
   /**
@@ -20,8 +19,7 @@ const MainPageButtons = ({ showButtons, productName }: Props) => {
    * para ver su detalle
    */
   const handleClick = () => {
-    const formattedName = replaceChar(productName, '/', '-');
-    return router.push(`/products/${formattedName}`);
+    return router.push(`/products/${productId}`);
   }
 
   return (
