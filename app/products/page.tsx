@@ -19,8 +19,12 @@ const ProductListPage = () => {
    * Se obtiene el listado de productos según la categoría y se setea en estado productList
    */
   const getProductsByCategory = useCallback(async () => {
+    console.log('Entra a useCallback para obtener todos los productos!')
     const filteredProductList = await fetch(`${INTERNAL_API_URL}/product-list/${selectedCategories}`, {
-      cache: 'no-store'
+      cache: 'force-cache',
+      next: {
+        revalidate: 1800000 // Media hora
+      }
     }).then(result => result.json());
     setProductList(filteredProductList)
   }, [selectedCategories]);
@@ -30,6 +34,7 @@ const ProductListPage = () => {
 
   // Manejador de filtrado por categorías. Si no queda categoría seleccionada se selecciona "Todos"
   const handleFilterCategories = (event: any) => {
+    console.log('Handle Change categories!!');
     // Caso de agregar clickear una categoría nueva
     if (!selectedCategories.includes(event.target.value)) {
       setSelectedCategories([...selectedCategories, event.target.value])

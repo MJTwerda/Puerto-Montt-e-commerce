@@ -12,7 +12,10 @@ export const metadata = {
 export default async function Home() {
   // Busca el listado de productos
   const featuredProduct = await fetch(`${INTERNAL_API_URL}/product-list/${MOCK_CATEGORIES.todos.value}`, {
-    cache: 'no-store'
+    cache: 'force-cache',
+    next: {
+      revalidate: 7200000 // 2 horas
+    }
   }).then(result => result.json());
 
   // Establece un index random para mostrar un producto destacado en el Home
