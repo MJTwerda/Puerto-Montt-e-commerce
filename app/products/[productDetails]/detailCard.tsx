@@ -7,7 +7,7 @@ import { Product } from '../../../interfaces/product';
 import DetailsActions from './detailsActions';
 
 interface Props {
-  productDetailsParam: null | Product;
+  productDetailsParam: Product;
 }
 
 const ProductDetailCard = ({ productDetailsParam }: Props) => {
@@ -19,20 +19,16 @@ const ProductDetailCard = ({ productDetailsParam }: Props) => {
         Volver
       </button>
       <section className={styles.detailCard}>
-        {productDetailsParam && (
-          <>
-            <div className={styles.headerDetails}>
-              <Image
-                src={`/${productDetailsParam.images[0]}`}
-                alt="featured product"
-                width={340}
-                height={340}
-              />
-              <DetailsActions product={productDetailsParam} />
-            </div>
-            <p>{productDetailsParam.description}</p>
-          </>
-        )}
+        <div className={styles.headerDetails}>
+          <Image
+            src={`/${productDetailsParam.images[0]}`}
+            alt="featured product"
+            width={340}
+            height={340}
+          />
+          <DetailsActions product={productDetailsParam} />
+        </div>
+        <p>{productDetailsParam.description}</p>
       </ section>
     </section>
   );

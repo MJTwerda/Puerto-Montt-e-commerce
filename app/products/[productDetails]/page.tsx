@@ -12,12 +12,17 @@ interface Props {
 }
 
 const ProductDetails = async({ params }: Props) => {
+  // TODO: Agregar mensaje en caso de no encontrar un registro
   const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productDetails}`, {
     cache: 'no-store'
   }).then(result => result.json());
 
   return (
-    <ProductDetailCard productDetailsParam={productDetails} />
+    <div>
+      {productDetails ? (
+        <ProductDetailCard productDetailsParam={productDetails} />
+      ) : <h4>:/ No es posible visualizar el producto, intenta más tarde</h4>}
+    </div>
   );
 };
 export default ProductDetails;
