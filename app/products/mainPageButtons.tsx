@@ -4,14 +4,14 @@ import { useRouter } from "next/navigation";
 
 interface Props {
   showButtons: string[]; // Define qué botones se van a mostrar en la página
-  productId: string
+  productSlug: string
 }
 
 /**
  * Recorre el array showButtons, y si la key matchea con alguno de los POSSIBLE_BUTTONS muestra
  * un botón con las propiedades del botón matcheado
  */
-const MainPageButtons = ({ showButtons, productId }: Props) => {
+const MainPageButtons = ({ showButtons, productSlug }: Props) => {
   const router = useRouter();
 
   /**
@@ -19,7 +19,7 @@ const MainPageButtons = ({ showButtons, productId }: Props) => {
    * para ver su detalle
    */
   const handleClick = () => {
-    return router.push(`/products/${productId}`);
+    return router.push(`/products/${productSlug}`);
   }
 
   return (

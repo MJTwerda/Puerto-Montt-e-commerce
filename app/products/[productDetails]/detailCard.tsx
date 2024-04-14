@@ -23,7 +23,7 @@ const ProductDetailCard = ({ productDetailsParam }: Props) => {
           <>
             <div className={styles.headerDetails}>
               <Image
-                src={`/${productDetailsParam.image}.png`}
+                src={`/${productDetailsParam.images[0]}`}
                 alt="featured product"
                 width={340}
                 height={340}

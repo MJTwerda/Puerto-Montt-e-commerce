@@ -46,10 +46,10 @@ const ProductListPage = () => {
    * Antes de navegar a la pantalla de detalle se formatea el params, de manera que se eliminen
    * todos los posibles "/" en el nombre, de esta forma se evita errores 404 al intentar dirigirse
    * a una pantalla inexistente
-   * @param productId - Nombre del producto sobre el cual se hizo click para ver el detalle
+   * @param productSlug - Nombre del producto sobre el cual se hizo click para ver el detalle
    */
-  const handleNavigateToDetails = (productId: string) => {
-    return router.push(`/products/${productId}`);
+  const handleNavigateToDetails = (productSlug: string) => {
+    return router.push(`/products/${productSlug}`);
   };
 
   return (

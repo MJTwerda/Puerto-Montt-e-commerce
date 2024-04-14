@@ -13,7 +13,7 @@ const FeaturedProduct = ({ product }: Props) => {
       <h1 className={styles.productTitle}>{product.name}</h1>
 
       <div className={styles.actionButtonsContainer}>
-        <MainPageButtons showButtons={['comprarAhora', 'verDetalles']} productId={product.id} />
+        <MainPageButtons showButtons={['comprarAhora', 'verDetalles']} productSlug={product.slug} />
       </div>
     </div>
   )

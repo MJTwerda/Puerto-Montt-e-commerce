@@ -19,10 +19,10 @@ const ProductList = ({ filteredProductList, handleNavigateToDetails }: Props) =>
           <div 
             key={product.name} 
             className={styles.productItem}
-            onClick={() => handleNavigateToDetails(product.id)}
+            onClick={() => handleNavigateToDetails(product.slug)}
           >
             <Image
-              src={`/${product.image}.png`}
+              src={`/${product.images[0]}`}
               alt="featured product"
               width={220}
               height={220}

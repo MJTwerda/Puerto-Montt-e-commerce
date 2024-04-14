@@ -1,27 +1,39 @@
 import { NextRequest, NextResponse } from "next/server";
-import { MOCK_CATEGORIES, AVAILABLE_PRODUCTS } from "@/constants/products";
-import { sleep } from '../../../../utils/products';
+import { MOCK_CATEGORIES } from "@/constants/products";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 interface Params {
   params: {
     categories: string;
-  }
+  };
 }
 
-export async function GET(request: NextRequest, { params }: Params) {
-  const { categories} = params;
+export async function GET(r: NextRequest, { params }: Params) {
+  const { categories } = params;
   // Se parse el param "categories" separando las categorías por la ","
-  const parsedCategories = categories.length ? categories.split(',') : categories;
+  const parsedCategories = categories.length
+    ? categories.split(",")
+    : categories;
+
+  // Se trae la collection "products desde nuestra db firestore instanciada en config.ts"
+  const productsCollection = collection(db, "products");
+
   /**
    * Se filtran los productos según las categorías recibidas por params. Como pueden haber múltiples
-   * categorías se comprueba que la categoría "todos" no esté seleccionado para filtrar, sino se 
+   * categorías se comprueba que la categoría "todos" no esté seleccionado para filtrar, sino se
    * devuelven todos los productos disponibles
    */
-  const filteredProductList =
-    !parsedCategories.length || parsedCategories.includes(MOCK_CATEGORIES.todos.value) ? AVAILABLE_PRODUCTS :
-      AVAILABLE_PRODUCTS.filter(product => parsedCategories.includes(product.category));
+  const q =
+    !parsedCategories.length ||
+    parsedCategories.includes(MOCK_CATEGORIES.todos.value)
+      ? productsCollection
+      : query(productsCollection, where("category", "in", parsedCategories));
 
+  // Se obtienen los documentos de la colección "products" pasando la query de filtrado
+  const productList = await getDocs(q);
 
-  await sleep(1600);
-  return NextResponse.json(filteredProductList)
+  const filteredProductList = productList.docs.map((doc) => doc.data());
+
+  return NextResponse.json(filteredProductList);
 }
