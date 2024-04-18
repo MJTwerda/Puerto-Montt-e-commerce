@@ -1,4 +1,6 @@
 import React from "react";
+import styles from './cart.module.css';
+import PurchaseSummary from './purchaseSummary';
 import PurchaseForm from './purchaseForm';
 
 export const metadata = {
@@ -8,9 +10,8 @@ export const metadata = {
 
 const Cart = () => {
   return (
-    <section>
-      <h3>Tu compra</h3>
-      <h5>Página en construcción. Próximamente tendremos un carrito funcionando</h5>
+    <section className={styles.cartSectionContainer}>
+      <PurchaseSummary />
       <PurchaseForm />
     </section>
 

@@ -11,12 +11,26 @@ const CartProvider = ({children}: Readonly<{
 }>) => {
   const [ cart, setCart ] = useState<Product[]>([]);
 
+  // Agrega un nuevo producto al carrito
   const addProductToCart = (product: Product[]) => {
     return setCart([...cart, ...product]);
-  }
+  };
+
+  /**
+   * Se ejecuta desde la pantalla "carrito" al clickear en el botón "Quitar" de un producto.
+   * Disminuye en 1 la cantidad del mismo producto agregado al carrito.
+   */
+  const removeProductFromCart = (productToRemove: Product) => {
+    const cartCopy = [...cart];
+    const indexToRemove = cartCopy.findIndex(product => product.slug === productToRemove.slug);
+    if (indexToRemove !== -1) {
+      cartCopy.splice(indexToRemove, 1);
+      setCart(cartCopy);
+    }
+  };
 
   return(
-    <CartContext.Provider value={{ addProductToCart, cart }}>
+    <CartContext.Provider value={{ addProductToCart, cart, removeProductFromCart }}>
       {children}
     </CartContext.Provider>
   )

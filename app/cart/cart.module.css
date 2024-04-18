@@ -1,3 +1,40 @@
+.cartSectionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Product Card */
+.detailCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 70px;
+  height: 150px;
+  width: 90%;
+  align-self: center;
+  background: var(--card-product-details);
+  margin-bottom: 17px;
+  padding: 15px; /* Añade un relleno para separar el contenido del borde */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Añade un borde con color */
+  border-top: none;
+  border-radius: 4px; /* Añade bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+  transition: 0.3s ease; /* Agrega transición de la sombra */
+}
+
+.description-column {
+  margin-left: 7px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Relacionado a formulario de compra */
 .formContainer {
   width: 50%;
 }
