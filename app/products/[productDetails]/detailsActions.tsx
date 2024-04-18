@@ -17,7 +17,6 @@ const DetailsActions = ({ product }: Props) => {
     price: product.price
   });
 
-  // const addProductToCart = useCartContext;
   const { addProductToCart } = useContext(CartContext);
 
   /**

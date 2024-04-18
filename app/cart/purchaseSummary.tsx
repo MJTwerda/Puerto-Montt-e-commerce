@@ -30,9 +30,9 @@ const PurchaseSummary = () => {
 
   return (
     <section>
-      <h2>Resumen de compra</h2>
+      <h2>Productos en el carrito</h2>
       {cartList.map((product: ProductCart) => (
-        <div className={styles.detailCard}>
+        <div className={`${styles['card-common-styles']} ${styles['detail-card']}`}>
           <Image
             alt={`${product.name} image`}
             src={`/${product.images[0]}`}
