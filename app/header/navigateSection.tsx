@@ -1,10 +1,10 @@
 'use client'
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./header.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ImCart } from "react-icons/im";
-import { CartContext } from '../../contexts/cartContext';
+import { useCartContext } from '../../contexts/cartContext';
 
 // Diferentes secciones en el Header de navegación
 const SECTIONS: { title: string; href: string; icon: boolean }[] = [
@@ -16,7 +16,7 @@ const SECTIONS: { title: string; href: string; icon: boolean }[] = [
 const NavigateSection = () => {
   const pathName = usePathname();
 
-  const { cart } = useContext(CartContext);
+  const { cart } = useCartContext();
   // console.log('Cart en header -> ', cart);
 
   return (

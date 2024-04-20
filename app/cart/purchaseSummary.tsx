@@ -1,7 +1,7 @@
 'use client'
-import React, { useContext } from "react";
+import React from "react";
 import styles from './cart.module.css';
-import { CartContext } from '../../contexts/cartContext';
+import { useCartContext } from '../../contexts/cartContext';
 import { Product } from "@/interfaces/product";
 import Image from "next/image";
 
@@ -10,7 +10,7 @@ interface ProductCart extends Product {
 }
 
 const PurchaseSummary = () => {
-  const { cart, removeProductFromCart } = useContext(CartContext);
+  const { cart, removeProductFromCart } = useCartContext();
 
   /**
    * TODO: llevar función a utils.

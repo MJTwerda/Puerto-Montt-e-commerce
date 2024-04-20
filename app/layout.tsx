@@ -22,12 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={encodeSansFont.className}>
         <CartProvider>
-          <>
-            <Header />
-            <div className="container-children">
-              {children}
-            </div>
-          </>
+          <Header />
+          <div className="container-children">
+            {children}
+          </div>
         </CartProvider>
       </body>
     </html>

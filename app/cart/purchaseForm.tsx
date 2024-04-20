@@ -1,7 +1,7 @@
 'use client'
-import React, { useContext } from "react";
+import React from "react";
 import styles from './cart.module.css';
-import { CartContext } from '../../contexts/cartContext';
+import { useCartContext } from '../../contexts/cartContext';
 
 const formFields = [
   {
@@ -25,7 +25,8 @@ const formFields = [
 ]
 
 const PurchaseForm = () => {
-  const { cart, totalPriceCart } = useContext(CartContext);
+
+  const { cart, totalPriceCart } = useCartContext();
   const handleManagePurchase = (event: any) => {
     event.preventDefault();
     alert('Gracias por tu compra! en breve nos pondremos en contacto');
@@ -50,6 +51,7 @@ const PurchaseForm = () => {
           <p>$ {totalPriceCart}</p>
         </div>
       </div>
+
       <form onSubmit={handleManagePurchase}>
         {formFields.map((field) => (
           <input

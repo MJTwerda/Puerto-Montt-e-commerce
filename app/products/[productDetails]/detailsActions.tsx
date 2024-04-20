@@ -1,11 +1,11 @@
 'use client'
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styles from '../products.module.css';
 import { Product } from "@/interfaces/product";
 import { GrSubtractCircle } from "react-icons/gr";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { POSSIBLE_ACTIONS } from '../../../constants/products';
-import { CartContext } from '../../../contexts/cartContext';
+import { useCartContext } from '../../../contexts/cartContext';
 
 interface Props {
   product: Product;
@@ -17,7 +17,7 @@ const DetailsActions = ({ product }: Props) => {
     price: product.price
   });
 
-  const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart } = useCartContext();
 
   /**
    * Se establece la cantidad de productos a comprar con el precio correspondiente
