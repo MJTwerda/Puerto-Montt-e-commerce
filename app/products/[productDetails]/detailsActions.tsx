@@ -6,6 +6,7 @@ import { GrSubtractCircle } from "react-icons/gr";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { POSSIBLE_ACTIONS } from '../../../constants/products';
 import { useCartContext } from '../../../contexts/cartContext';
+import CommonButton from "@/app/components/button";
 
 interface Props {
   product: Product;
@@ -43,27 +44,26 @@ const DetailsActions = ({ product }: Props) => {
       <hr />
       <h2>${buyDetails.price}</h2>
       <div className={styles.actionsContainer}>
-        <button 
+        <CommonButton 
+          label={<GrSubtractCircle />}
           className="product-count-button"
-          onClick={() => handleChangeProductCount(POSSIBLE_ACTIONS.subtract)}
+          action={() => handleChangeProductCount(POSSIBLE_ACTIONS.subtract)}
           disabled={buyDetails.count === 1}
-        >
-          <GrSubtractCircle />
-        </button>
+        />
+
         <h3 className={styles.productCount}>{buyDetails.count}</h3>
-        <button 
+        
+        <CommonButton 
+          label={<IoIosAddCircleOutline />}
           className="product-count-button"
-          onClick={() => handleChangeProductCount(POSSIBLE_ACTIONS.add)}
-        >
-          <IoIosAddCircleOutline />
-        </button>
+          action={() => handleChangeProductCount(POSSIBLE_ACTIONS.add)}
+        />
       </div>
-      <button 
+      <CommonButton 
+        label="Agregar a carrito"
         className="add-to-cart-button"
-        onClick={handleAddProductToCart}
-      >
-        Agregar a carrito
-      </button>
+        action={handleAddProductToCart}
+      />
     </div>
   )
 };

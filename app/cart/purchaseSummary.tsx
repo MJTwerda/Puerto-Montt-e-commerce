@@ -4,6 +4,7 @@ import styles from './cart.module.css';
 import { useCartContext } from '../../contexts/cartContext';
 import { Product } from "@/interfaces/product";
 import Image from "next/image";
+import CommonButton from "../components/button";
 
 interface ProductCart extends Product {
   count: number;
@@ -41,12 +42,11 @@ const PurchaseSummary = () => {
           <div className={styles['description-column']}>
             <p>Name: {product.name}</p>
             <div className={styles['product-info']}>
-              <button 
+              <CommonButton 
+                label="Quitar"
                 className="secondary-button"
-                onClick={() => removeProductFromCart(product)}
-              >
-                Quitar
-              </button>
+                action={() => removeProductFromCart(product)}
+              />
               <p>Count: {product.count}</p>
               <p>$ {product.price}</p>
             </div>
