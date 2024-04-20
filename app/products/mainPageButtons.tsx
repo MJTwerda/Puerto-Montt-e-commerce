@@ -1,6 +1,7 @@
 'use client'
 import { POSSIBLE_BUTTONS } from '../../utils/commonButtonActions';
 import { useRouter } from "next/navigation";
+import CommonButton from '../components/button';
 
 interface Props {
   showButtons: string[]; // Define qué botones se van a mostrar en la página
@@ -26,13 +27,12 @@ const MainPageButtons = ({ showButtons, productSlug }: Props) => {
     <>
       {showButtons.map(button => (
         POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS] ? (
-          <button
+          <CommonButton 
             key={button}
-            onClick={handleClick}
+            label={POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].name}
             className={POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].className}
-          >
-            {POSSIBLE_BUTTONS[button as keyof typeof POSSIBLE_BUTTONS].name}
-          </button>
+            action={handleClick}
+          />
         ) : null
       ))}
     </>

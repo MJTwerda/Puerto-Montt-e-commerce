@@ -48,3 +48,14 @@
   border-radius: var(--common-border-radius);
   opacity: 0.9;
 }
+
+.cart-section {
+  display: flex;
+  align-items: center;
+}
+
+.cart-section-count {
+  margin: 0 5px;
+  color: var(--btn-secondary-end-color);
+  /* color: var(--dark-text-color); */
+}

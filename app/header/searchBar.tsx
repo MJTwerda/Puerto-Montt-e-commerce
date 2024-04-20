@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from "./header.module.css";
 import { ImSearch } from "react-icons/im";
+import CommonButton from '../components/button';
 
 const SearchBar = () => {
   const [searchProduct, setSearchProduct] = useState('');
@@ -25,9 +26,11 @@ const SearchBar = () => {
           onChange={handleChange}
 
         />
-        <button className={styles.searchIconButton} onClick={handleSubmitSearch}>
-          <ImSearch color='#031c26' />
-        </button>
+        <CommonButton 
+          label={<ImSearch color='#031c26' />}
+          className={styles.searchIconButton}
+          action={handleSubmitSearch}
+        />
       </form>
     </div>
   )

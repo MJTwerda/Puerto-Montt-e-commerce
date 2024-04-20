@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { Product } from '../../../interfaces/product';
 import DetailsActions from './detailsActions';
+import CommonButton from "@/app/components/button";
 
 interface Props {
   productDetailsParam: Product;
@@ -15,9 +16,11 @@ const ProductDetailCard = ({ productDetailsParam }: Props) => {
 
   return (
     <section className={styles.sectionContainer}>
-      <button className="back-button" onClick={router.back}>
-        Volver
-      </button>
+      <CommonButton 
+        label="Volver"
+        className="back-button"
+        action={router.back}
+      />
       <section className={styles.detailCard}>
         <div className={styles.headerDetails}>
           <Image

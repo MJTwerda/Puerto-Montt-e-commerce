@@ -5,6 +5,8 @@ import { Product } from "@/interfaces/product";
 import { GrSubtractCircle } from "react-icons/gr";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { POSSIBLE_ACTIONS } from '../../../constants/products';
+import { useCartContext } from '../../../contexts/cartContext';
+import CommonButton from "@/app/components/button";
 
 interface Props {
   product: Product;
@@ -16,6 +18,8 @@ const DetailsActions = ({ product }: Props) => {
     price: product.price
   });
 
+  const { addProductToCart } = useCartContext();
+
   /**
    * Se establece la cantidad de productos a comprar con el precio correspondiente
    * @param actionType - Indica si se debe sumar o restar la cantidad de productos
@@ -24,6 +28,14 @@ const DetailsActions = ({ product }: Props) => {
     const count = actionType === POSSIBLE_ACTIONS.add ? buyDetails.count + 1 : buyDetails.count - 1;
     const price = count * product.price;
     setBuyDetails({ count, price });
+  };
+
+  const handleAddProductToCart = () => {
+    const productList = [];
+    for (let i = 1; i <= buyDetails.count; i++) {
+      productList.push(product);
+    }
+    return addProductToCart(productList);
   }
 
   return (
@@ -32,22 +44,26 @@ const DetailsActions = ({ product }: Props) => {
       <hr />
       <h2>${buyDetails.price}</h2>
       <div className={styles.actionsContainer}>
-        <button 
+        <CommonButton 
+          label={<GrSubtractCircle />}
           className="product-count-button"
-          onClick={() => handleChangeProductCount(POSSIBLE_ACTIONS.subtract)}
+          action={() => handleChangeProductCount(POSSIBLE_ACTIONS.subtract)}
           disabled={buyDetails.count === 1}
-        >
-          <GrSubtractCircle />
-        </button>
+        />
+
         <h3 className={styles.productCount}>{buyDetails.count}</h3>
-        <button 
+        
+        <CommonButton 
+          label={<IoIosAddCircleOutline />}
           className="product-count-button"
-          onClick={() => handleChangeProductCount(POSSIBLE_ACTIONS.add)}
-        >
-          <IoIosAddCircleOutline />
-        </button>
+          action={() => handleChangeProductCount(POSSIBLE_ACTIONS.add)}
+        />
       </div>
-      <button className="add-to-cart-button">Agregar a carrito</button>
+      <CommonButton 
+        label="Agregar a carrito"
+        className="add-to-cart-button"
+        action={handleAddProductToCart}
+      />
     </div>
   )
 };
