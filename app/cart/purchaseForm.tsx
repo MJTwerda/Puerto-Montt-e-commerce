@@ -26,10 +26,12 @@ const formFields = [
 
 const PurchaseForm = () => {
 
-  const { cart, totalPriceCart } = useCartContext();
+  const { cart, totalPriceCart, clearCart } = useCartContext();
   const handleManagePurchase = (event: any) => {
     event.preventDefault();
     alert('Gracias por tu compra! en breve nos pondremos en contacto');
+    clearCart(); // Se limpia el carrito y localStorage
+    // TODO: Implementar visualización de compras anteriores
   }
 
   return (

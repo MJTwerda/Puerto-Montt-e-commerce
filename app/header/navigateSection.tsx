@@ -34,8 +34,10 @@ const NavigateSection = () => {
         href='/cart'
         className={pathName === '/cart' ? styles.sectionActive : styles.sections}
       >
-        <ImCart />
-        <p>{cart.length}</p>
+        <div className={styles['cart-section']}>
+          <ImCart />
+          <p className={styles['cart-section-count']}>{cart.length}</p>
+        </div>
       </Link>
     </div>
   )

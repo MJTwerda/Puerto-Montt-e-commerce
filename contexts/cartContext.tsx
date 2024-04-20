@@ -7,13 +7,15 @@ type CartContextType = {
   totalPriceCart: number;
   addProductToCart: (productList: Product[]) => void;
   removeProductFromCart: (productToRemove: Product) => void;
+  clearCart: () => void;
 };
 
 const CartContext = createContext<CartContextType>({
   cart: [],
   totalPriceCart: 0,
-  addProductToCart: () => {},
-  removeProductFromCart: () => {},
+  addProductToCart: () => { },
+  removeProductFromCart: () => { },
+  clearCart: () => { }
 });
 
 export const useCartContext = () => {
@@ -61,12 +63,17 @@ const CartProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
       setCart(cartCopy);
       setTotalPriceCart(newTotalPriceCart);
       // Se setea el localStorage con el nuevo valor de cart
-      localStorage.setItem('cart', JSON.stringify(cartCopy)); 
+      localStorage.setItem('cart', JSON.stringify(cartCopy));
     }
   };
 
+  const clearCart = () => {
+    setCart([]);
+    localStorage.setItem('cart', JSON.stringify([]));
+  }
+
   return (
-    <CartContext.Provider value={{ addProductToCart, cart, removeProductFromCart, totalPriceCart }}>
+    <CartContext.Provider value={{ addProductToCart, cart, removeProductFromCart, totalPriceCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
