@@ -17,7 +17,6 @@ const NavigateSection = () => {
   const pathName = usePathname();
 
   const { cart } = useCartContext();
-  // console.log('Cart en header -> ', cart);
 
   return (
     <div className={styles.navigateSection}>
