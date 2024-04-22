@@ -70,6 +70,7 @@ const CartProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
   const clearCart = () => {
     setCart([]);
     localStorage.setItem('cart', JSON.stringify([]));
+    setTotalPriceCart(0);
   }
 
   return (

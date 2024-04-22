@@ -38,6 +38,29 @@
 }
 
 /* Relacionado a formulario de compra */
+.cart-info {
+  margin: 0 7px;
+  align-self: center;
+}
+
+.common-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.clear-cart-btn {
+  margin-left: 20px;
+  align-self: center;
+  width: 17%;
+}
+
+.clear-cart-icon {
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  display: contents;
+}
+
 .purchase-form-div-container {
   width: 40%;
 }
