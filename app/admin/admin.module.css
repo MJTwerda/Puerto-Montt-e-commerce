@@ -1,0 +1,54 @@
+.admin-title {
+  font-size: xx-large;
+  font-weight: 300;
+}
+
+.table-container {
+  max-height: 500px; 
+  overflow-y: auto; 
+  background-color: var(--card-product-details);
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 10px;
+  border: 1px solid var(--input-background-light);
+  text-align: left;
+  overflow: hidden; 
+}
+
+.product-table th {
+  /* background-color: #f2f2f2; */
+  background-color: var(--input-background);
+}
+
+.product-table {
+  overflow-y: auto;
+}
+
+.product-table td img {
+  max-width: 100px;
+  max-height: 150px;
+}
+
+/* Scrollbar */
+.table-container::-webkit-scrollbar {
+  background-color: #110e0e; /* Color de fondo de la barra de desplazamiento */
+  border-radius: 20px;
+  width: 7px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: var(--start-navbar-color-opacity); /* Color de la barra de desplazamiento */
+  border-radius: 23px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: var(--light-color-opacity); /* Color de fondo del área por donde se desplaza la barra de desplazamiento */
+  border-radius: 23px;
+}
