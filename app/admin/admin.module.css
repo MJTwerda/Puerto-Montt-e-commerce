@@ -3,6 +3,27 @@
   font-weight: 300;
 }
 
+/* Action Icons */
+.action-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-action-btn {
+  /* margin-left: 20px; */
+  margin: 7px;
+  align-self: center;
+  width: 87%;
+}
+
+.action-icon {
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  display: contents;
+}
+
+/* Table */
 .table-container {
   max-height: 500px; 
   overflow-y: auto; 

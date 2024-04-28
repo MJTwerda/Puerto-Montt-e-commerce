@@ -17,16 +17,18 @@ const CommonModal = (props: Props) => {
     <div id="myModal" className={styles["modal"]} style={{ display: props.open ? 'block' : 'none' }}>
       <div className={styles["modal-content"]}>
         <p>{props.title}</p>
-        <CommonButton 
-          label="Confirmar"
-          action={props.onConfirm}
-          className="primary-button"
-        />
-        <CommonButton 
-          label="Cancelar"
-          action={() => props.onClose(false)}
-          className="secondary-button"
-        />
+        <div className={styles['modal-actions-container']}>
+          <CommonButton 
+            label="Confirmar"
+            action={props.onConfirm}
+            className={`${styles['action-button']} primary-button`}
+          />
+          <CommonButton 
+            label="Cancelar"
+            action={() => props.onClose(false)}
+            className={`${styles['action-button']} secondary-button`}
+          />
+        </div>
       </div>
     </div>
   )

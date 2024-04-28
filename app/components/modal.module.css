@@ -16,26 +16,15 @@
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 43%;
 }
 
-/* Estilo para el botón de confirmar y cancelar */
-.modal-content button {
-  padding: 10px 20px;
-  margin: 0 5px;
-  cursor: pointer;
+/* Contenedor de botones de acción del modal */
+.modal-actions-container {
+  display: flex; 
+  justify-content: center;
 }
 
-/* Estilo para el botón de confirmar */
-.modal-content .confirm-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-}
-
-/* Estilo para el botón de cancelar */
-.modal-content .cancel-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
+.action-button {
+  margin: 7px;
 }

@@ -28,7 +28,7 @@ const formFields = [
 ]
 
 const PurchaseForm = () => {
-  const [openModal, setopenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const { cart, totalPriceCart, clearCart } = useCartContext();
   const handleManagePurchase = (event: any) => {
@@ -39,12 +39,12 @@ const PurchaseForm = () => {
   };
 
   const handleOpenConfirmModal = () => {
-    setopenModal(true);
+    setOpenModal(true);
   };
 
   const handleClearCart = () => {
     clearCart();
-    setopenModal(false);
+    setOpenModal(false);
   }
 
   return (
@@ -55,7 +55,8 @@ const PurchaseForm = () => {
           label={
             <div className={styles['clear-cart-icon']}>
               <MdDeleteOutline color='#FDEBE4' size={21} />
-            </div>}
+            </div>
+          }
           className={`${styles['clear-cart-btn']} secondary-button`}
           action={handleOpenConfirmModal}
         />
@@ -95,7 +96,7 @@ const PurchaseForm = () => {
       <CommonModal
         open={openModal}
         title="¿Estás seguro de que quieres vaciar el carrito? Esta acción es irreversible"
-        onClose={() => setopenModal(false)}
+        onClose={() => setOpenModal(false)}
         onConfirm={handleClearCart}
       />
     </section>

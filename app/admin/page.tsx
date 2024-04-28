@@ -3,6 +3,7 @@ import { INTERNAL_API_URL } from '@/constants/commons';
 import { MOCK_CATEGORIES } from '@/constants/products';
 import { Product } from '@/interfaces/product';
 import Image from 'next/image';
+import ActionsCell from './actionsCell';
 
 export const metadata = {
   title: 'Admin page',
@@ -12,7 +13,7 @@ export const metadata = {
 const AdminPage = async () => {
 
   // Headers de la tabla. El orden debe coincidir con el tbody
-  const tableHeaders: string[] = ['Slug', 'Nombre', 'Precio', 'En Stock', 'Categoría', 'Imagen principal', 'Descripción'];
+  const tableHeaders: string[] = ['Slug', 'Nombre', 'Precio', 'En Stock', 'Categoría', 'Imagen principal', 'Descripción', 'Acciones'];
 
   const productList = await fetch(`${INTERNAL_API_URL}/product-list/${MOCK_CATEGORIES.todos.value}`, {
     cache: 'no-store',
@@ -47,6 +48,7 @@ const AdminPage = async () => {
                   />
                 </td>
                 <td>{product.description}</td>
+                <td><ActionsCell product={product} /></td>
               </tr>
             ))}
           </tbody>

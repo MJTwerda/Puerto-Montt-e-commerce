@@ -68,6 +68,7 @@ input[type="submit"]:hover {
 .back-button,
 .product-count-button,
 .add-to-cart-button,
+.delete-button,
 .primary-button,
 .secondary-button {
   border-radius: var(--common-border-radius);
@@ -75,6 +76,7 @@ input[type="submit"]:hover {
   height: 33px;
   border: unset;
   color: white;
+  text-align: center;
 }
 
 .submit-button,
@@ -87,6 +89,10 @@ input[type="submit"]:hover {
 .back-button, 
 .secondary-button {
   background: var(--btn-secondary-bg-colors);
+}
+
+.delete-button {
+  background: rgb(177, 20, 20);
 }
 
 .back-button {
