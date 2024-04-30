@@ -7,4 +7,5 @@ export interface Product {
   category: string;
   inStock: number;
   slug: string;
+  status: 'ACTIVE' | 'INACTIVE';
 }

@@ -1,12 +1,13 @@
 'use client'
 import React, { useState } from "react"
+import { useRouter } from 'next/navigation';
 import styles from './admin.module.css';
 import CommonButton from "../components/button";
 import CommonModal from '../components/commonModal';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Product } from "@/interfaces/product";
-import { useRouter } from 'next/navigation';
+import { INTERNAL_API_URL } from "@/constants/commons";
 
 interface Props {
   product: Product;
@@ -30,15 +31,19 @@ const ActionsCell = ({ product }: Props) => {
   const handleUpdateProduct = () => {
     console.log('🟣El producto se modificó: ', product);
     setOpenDeleteModal(false);
-    router.push('/')
+    router.push(`/admin/${product.slug}`);
   }
 
   /**
-    * Acción de confirmación de modal si se abre desde botón ELIMINAR
+    * Acción de confirmación de modal si se abre desde botón ELIMINAR.
+    * TODO: Agregar notificaciones para estas operaciones admin
   */
-  const handleDeleteProduct = () => {
-    console.log('🔴El producto se eliminó: ', product);
+  const handleDeleteProduct = async () => {
     setOpenDeleteModal(false);
+    await fetch(`${INTERNAL_API_URL}/product-details/${product.slug}`, {
+      cache: 'no-store',
+      method: 'put'
+    }).then(result => result.json());
   }
 
   return (

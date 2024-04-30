@@ -18,7 +18,7 @@ const ProductDetails = async ({ params }: Props) => {
   const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productDetails}`, {
     cache: 'force-cache',
     next: {
-      revalidate: 1800000 // Media hora
+      revalidate: 900000 // 15 minutos
     }
   }).then(result => result.json());
 

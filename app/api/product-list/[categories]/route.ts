@@ -33,7 +33,8 @@ export async function GET(r: NextRequest, { params }: Params) {
   // Se obtienen los documentos de la colección "products" pasando la query de filtrado
   const productList = await getDocs(q);
 
-  const filteredProductList = productList.docs.map((doc) => doc.data());
+  const completeProductList = productList.docs.map((doc) => doc.data());
+  const filteredProductList = completeProductList.filter(product => product.status === 'ACTIVE');
 
   return NextResponse.json(filteredProductList);
 }

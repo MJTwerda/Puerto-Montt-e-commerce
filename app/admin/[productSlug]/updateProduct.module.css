@@ -1,0 +1,34 @@
+.section-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.common-field {
+  margin-bottom: 12px;
+  border-radius: var(--common-border-radius);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.form-container textarea {
+  height: 200px;
+  resize: none; 
+}
+
+.action-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+}
+
+.back-button {
+  width: 13%;
+  margin-bottom: 20px;
+}
