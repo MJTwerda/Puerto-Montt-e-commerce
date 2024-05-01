@@ -8,6 +8,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Product } from "@/interfaces/product";
 import { INTERNAL_API_URL } from "@/constants/commons";
+import axios from "axios";
 
 interface Props {
   product: Product;
@@ -40,10 +41,16 @@ const ActionsCell = ({ product }: Props) => {
   */
   const handleDeleteProduct = async () => {
     setOpenDeleteModal(false);
-    await fetch(`${INTERNAL_API_URL}/product-details/${product.slug}`, {
-      cache: 'no-store',
-      method: 'put'
-    }).then(result => result.json());
+    await axios({
+      url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+      method: 'DELETE'
+    }).then(({ data }) => {
+      if (data.ok) {
+        //TODO: Mostrar notificación de eliminación exitosa
+        alert(`${data.message}`);
+        router.refresh()
+      }
+    });
   }
 
   return (

@@ -24,7 +24,7 @@ export async function GET(r: NextRequest, { params }: Params) {
  * TODO: Intentar implementar transaction
  * Se hace un Soft delete del producto coincidente con el slug recibido por parámetro
  */
-export async function PUT(r: NextRequest, { params }: Params) {
+export async function DELETE(r: NextRequest, { params }: Params) {
   const docRef = doc(db, 'products', params.productSlug);
   if (docRef) {
     await updateDoc(docRef, { status: 'INACTIVE' });
