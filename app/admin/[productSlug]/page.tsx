@@ -12,7 +12,9 @@ interface Props {
 
 const UpdateProductPage = async ({ params }: Props) => {
 
-  const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productSlug}`)
+  const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productSlug}`, {
+    cache: 'no-store',
+  })
     .then(result => result.json());
 
   return (

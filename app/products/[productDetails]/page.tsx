@@ -16,10 +16,7 @@ interface Props {
 const ProductDetails = async ({ params }: Props) => {
   // TODO: Agregar mensaje en caso de no encontrar un registro
   const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productDetails}`, {
-    cache: 'force-cache',
-    next: {
-      revalidate: 900000 // 15 minutos
-    }
+    cache: 'no-cache'
   }).then(result => result.json());
 
   return (

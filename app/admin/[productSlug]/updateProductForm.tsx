@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import styles from './updateProduct.module.css';
 import { Product } from "@/interfaces/product";
 import CommonButton from "@/app/components/button";
+import axios from "axios";
+import { INTERNAL_API_URL } from "@/constants/commons";
 
 interface Props {
   product: Product;
@@ -14,7 +16,7 @@ const UpdateProductForm = ({ product }: Props) => {
   const [formValue, setFormValue] = useState({
     category: '',
     description: '',
-    // images: product?.images,
+    images: product?.images,
     inStock: 0,
     name: '',
     price: 0,
@@ -27,7 +29,7 @@ const UpdateProductForm = ({ product }: Props) => {
       setFormValue({
         category: product?.category,
         description: product?.description,
-        // images: product?.images,
+        images: product?.images, // TODO: Agregar campo de imagen al formulario
         inStock: product?.inStock,
         name: product?.name,
         price: product?.price,
@@ -41,9 +43,18 @@ const UpdateProductForm = ({ product }: Props) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async(e: any) => {
     e.preventDefault();
-    console.log('🟢 nueva info del producto:: ', formValue);
+    await axios({
+      method: 'PUT',
+      url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+      data: formValue
+    }).then(({ data }) => {
+      if (data.ok) {
+        //TODO: Mostrar notificación de eliminación exitosa
+        alert(`${data.message}`);
+      }
+    })
   }
 
   return (

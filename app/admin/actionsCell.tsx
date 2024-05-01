@@ -18,19 +18,13 @@ const ActionsCell = ({ product }: Props) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const router = useRouter();
 
-  /**
-   * Se abre el modal de confirmación para Editar o Eliminar un producto
-   */
+  // Se abre el modal de confirmación para Editar o Eliminar un producto
   const handleOpenModal = () => {
     setOpenDeleteModal(true);
   };
 
-  /**
-   * TODO: Crear pantalla de edición de producto y colocar acá
-   * Redirección a pantalla de edición de productos
-   */
+  // Redirección a pantalla de edición de productos
   const handleUpdateProduct = () => {
-    console.log('🟣El producto se modificó: ', product);
     setOpenDeleteModal(false);
     router.push(`/admin/${product.slug}`);
   }

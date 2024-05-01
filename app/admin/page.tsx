@@ -4,6 +4,7 @@ import { MOCK_CATEGORIES } from '@/constants/products';
 import { Product } from '@/interfaces/product';
 import Image from 'next/image';
 import ActionsCell from './actionsCell';
+import axios from 'axios';
 
 export const metadata = {
   title: 'Admin page',
@@ -15,9 +16,13 @@ const AdminPage = async () => {
   // Headers de la tabla. El orden debe coincidir con el tbody
   const tableHeaders: string[] = ['Slug', 'Nombre', 'Precio', 'En Stock', 'Categoría', 'Imagen principal', 'Descripción', 'Acciones'];
 
-  const productList = await fetch(`${INTERNAL_API_URL}/product-list/${MOCK_CATEGORIES.todos.value}`, {
-    cache: 'no-store',
-  }).then(result => result.json());
+  const productList = await axios({
+    method: 'GET',
+    url: `${INTERNAL_API_URL}/product-list/${MOCK_CATEGORIES.todos.value}`
+  }).then(({ data }) => {
+    // TODO: Revisa cómo hacer para obtener la info actualizada al volver a esta pantalla desde update
+    return data;
+  });
 
   return (
     <section>
