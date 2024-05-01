@@ -71,6 +71,8 @@ const UpdateProductForm = ({ product }: Props) => {
           type='text'
           id='name'
           name='name'
+          minLength={3}
+          maxLength={150}
           required
           placeholder='Nombre'
           onChange={handleInputChange}
@@ -80,6 +82,7 @@ const UpdateProductForm = ({ product }: Props) => {
         {/* Price */}
         <input
           type='number'
+          min={0}
           id='price'
           name='price'
           required
@@ -91,6 +94,7 @@ const UpdateProductForm = ({ product }: Props) => {
         {/* In Stock */}
         <input
           type='number'
+          min={0}
           id='inStock'
           name='inStock'
           required
@@ -99,9 +103,10 @@ const UpdateProductForm = ({ product }: Props) => {
           value={formValue['inStock']}
           className={styles['common-field']}
         />
-        {/* Category */}
+        {/* Category TODO: Cambiar por selector de categorías determinadas */}
         <input
           type='text'
+          disabled // TODO: Por el momento de deshabilita campo para evitar categorías inexistentes
           id='category'
           name='category'
           required
@@ -113,6 +118,8 @@ const UpdateProductForm = ({ product }: Props) => {
         {/* Description */}
         <textarea
           id='description'
+          minLength={3}
+          maxLength={700}
           name='description'
           required
           placeholder='Descripción'
