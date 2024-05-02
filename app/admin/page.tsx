@@ -46,7 +46,7 @@ const AdminPage = async () => {
                 <td>{product.category}</td>
                 <td>
                   <Image
-                    src={`/${product.images[0]}`}
+                    src={`${product.images[0]}`}
                     alt={`${product.name} image`}
                     width={80}
                     height={80}

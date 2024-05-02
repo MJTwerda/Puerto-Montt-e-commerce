@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import { validateProduct } from "./validators";
+import { individualSetImageURL } from "../../utils/relatesProducts";
 
 interface Params {
   params: { productSlug: string };
@@ -13,7 +14,8 @@ export async function GET(r: NextRequest, { params }: Params) {
   const productResult = await getDoc(docRef);
 
   if (productResult.exists() && productResult.data().status === "ACTIVE") {
-    return NextResponse.json(productResult.data());
+    const productWithImageURL = individualSetImageURL(productResult.data());
+    return NextResponse.json(productWithImageURL);
   } else {
     return NextResponse.json(null);
   }
@@ -56,7 +58,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
       }, { status: 200 });
     } else {
       return NextResponse.json({
-        ok: 1,
+        ok: 0,
         message: "Error al modificar producto",
       }, { status: 400 });
     }

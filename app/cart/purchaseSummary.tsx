@@ -36,7 +36,7 @@ const PurchaseSummary = () => {
         <div key={product.slug} className={`${styles['card-common-styles']} ${styles['detail-card']}`}>
           <Image
             alt={`${product.name} image`}
-            src={`/${product.images[0]}`}
+            src={`${product.images[0]}`}
             height={100} width={100}
           />
           <div className={styles['description-column']}>

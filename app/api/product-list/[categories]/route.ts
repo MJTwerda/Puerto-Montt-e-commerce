@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { MOCK_CATEGORIES } from "@/constants/products";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/firebase/config";
+import { setImageURL } from '../../utils/relatesProducts';
 
 interface Params {
   params: {
@@ -34,7 +35,10 @@ export async function GET(r: NextRequest, { params }: Params) {
   const productList = await getDocs(q);
 
   const completeProductList = productList.docs.map((doc) => doc.data());
+
   const filteredProductList = completeProductList.filter(product => product.status === 'ACTIVE');
 
-  return NextResponse.json(filteredProductList);
+  const productWithImageURL = setImageURL(filteredProductList);
+
+  return NextResponse.json(productWithImageURL);
 }

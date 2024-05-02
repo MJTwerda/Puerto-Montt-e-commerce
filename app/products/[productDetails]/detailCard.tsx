@@ -24,7 +24,7 @@ const ProductDetailCard = ({ productDetailsParam }: Props) => {
       <section className={styles.detailCard}>
         <div className={styles.headerDetails}>
           <Image
-            src={`/${productDetailsParam.images[0]}`}
+            src={`${productDetailsParam.images[0]}`}
             alt="featured product"
             width={340}
             height={340}

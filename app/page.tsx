@@ -22,7 +22,7 @@ export default async function Home() {
     <div className={styles.divFeaturedProduct}>
       <FeaturedProduct product={featuredProduct[randomIndex]} />
       <Image
-        src={`/${featuredProduct[randomIndex].images[0]}`}
+        src={`${featuredProduct[randomIndex].images[0]}`}
         alt="featured product"
         width={450}
         height={450}
