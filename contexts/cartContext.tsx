@@ -74,7 +74,9 @@ const CartProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
   }
 
   return (
-    <CartContext.Provider value={{ addProductToCart, cart, removeProductFromCart, totalPriceCart, clearCart }}>
+    <CartContext.Provider 
+      value={{ addProductToCart, cart, removeProductFromCart, totalPriceCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
