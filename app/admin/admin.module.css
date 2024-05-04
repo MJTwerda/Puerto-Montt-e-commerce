@@ -73,3 +73,32 @@
   background-color: var(--light-color-opacity); /* Color de fondo del área por donde se desplaza la barra de desplazamiento */
   border-radius: 23px;
 }
+
+/* ---- LOGIN MODAL ---- */
+.title {
+  color: var(--input-background-light);
+  text-align: center;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.common-field {
+  margin-bottom: 12px;
+  border-radius: var(--common-border-radius);
+  border: solid;
+  z-index: 3;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: var(--dark-text-color);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 43%;
+  border-radius: 12px;
+}

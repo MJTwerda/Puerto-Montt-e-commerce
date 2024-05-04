@@ -2,6 +2,7 @@ import "./globals.css";
 import { Encode_Sans_Expanded } from "next/font/google";
 import Header from "./header/header";
 import CartProvider from '../contexts/cartContext';
+import AuthProvider from "@/contexts/authContext";
 
 const encodeSansFont = Encode_Sans_Expanded({
   weight: ['300', '400', '500', '700', '900'],
@@ -21,12 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={encodeSansFont.className}>
-        <CartProvider>
-          <Header />
-          <div className="container-children">
-            {children}
-          </div>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <div className="container-children">
+              {children}
+            </div>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
