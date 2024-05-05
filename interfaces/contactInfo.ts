@@ -10,3 +10,9 @@ export interface InfoSection {
   title: string;
   infoList: InfoList[];
 }
+
+export interface AuthValues {
+  email: string;
+  password: string;
+  motive: "login" | "register";
+}

@@ -11,38 +11,25 @@ type Props = {
 }
 
 const LoginFormModal = (props: Props) => {
-  const { registerUser } = useAuthContext();
+  const { registerUser, loginUser } = useAuthContext();
   const [formValue, setFormValue] = useState({
-    firstName: '',
-    lastName: '',
+    // firstName: '',
+    // lastName: '',
     email: '',
     password: ''
   });
   const router = useRouter();
 
   const LOGIN_FIELDS = [
-    { name: 'firstName', type: 'text', placeholder: 'Ingresa tu nombre', required: true },
-    { name: 'lastName', type: 'text', placeholder: 'Ingresa tu apellido', required: true },
+    // { name: 'firstName', type: 'text', placeholder: 'Ingresa tu nombre', required: true },
+    // { name: 'lastName', type: 'text', placeholder: 'Ingresa tu apellido', required: true },
     { name: 'email', type: 'email', placeholder: 'Ingresa tu email', required: true },
     { name: 'password', type: 'password', placeholder: 'Ingresa tu contraseña', required: true }
   ];
 
-  const handleConfirm = () => {
-    console.log('Click en Confirm')
-  };
-
-  const handleClose = () => {
-    console.log('Click en Close')
-  };
-
   const handleInputChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
   }
-
-  const handleLogin = (e: any) => {
-    e.preventDefault();
-    console.log('Usuario se logea con:: ', formValue);
-  };
 
   return (
     <div
@@ -51,7 +38,7 @@ const LoginFormModal = (props: Props) => {
     >
       <div className={styles["modal-content"]}>
         <h3 className={styles['title']}>Login</h3>
-        <form onSubmit={handleLogin} className={styles['form-container']}>
+        <section className={styles['form-container']}>
           {LOGIN_FIELDS.map(field => (
             <input
               key={field.name}
@@ -72,17 +59,17 @@ const LoginFormModal = (props: Props) => {
               className={`${modalStyles['action-button']} secondary-button`}
             />
             <CommonButton
-              label="Logearse"
-              action={handleConfirm}
+              label="Ingresar"
+              action={() => loginUser({...formValue, motive: 'login'})}
               className={`${modalStyles['action-button']} primary-button`}
             />
             <CommonButton
               label="Registrarse"
-              action={() => registerUser(formValue)}
+              action={() => registerUser({...formValue, motive: 'register'})}
               className={`${modalStyles['action-button']} primary-button`}
             />
           </div>
-        </form>
+        </section>
 
       </div>
     </div>

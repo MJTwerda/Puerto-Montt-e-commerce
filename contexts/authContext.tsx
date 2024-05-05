@@ -1,7 +1,10 @@
 'use client'
 import { auth } from '../firebase/config';
 import React, { createContext, useContext, useState } from "react";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { AuthValues } from '@/interfaces/contactInfo';
+import axios from 'axios';
+import { INTERNAL_API_URL } from '@/constants/commons';
 
 type UserState = {
   logged: boolean;
@@ -11,13 +14,14 @@ type UserState = {
 
 type AuthContextType = {
   user: UserState;
-  registerUser: (values: { email: string, password: string }) => void;
+  registerUser: (values: AuthValues) => void;
+  loginUser: (values: AuthValues) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: { logged: false, email: null, uid: null },
-  registerUser: () => { }
-  
+  registerUser: () => { },
+  loginUser: () => {}
 });
 
 export const useAuthContext = () => {
@@ -35,18 +39,34 @@ const AuthProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
     uid: null
   });
 
-  const registerUser = async (values: { email: string, password: string }) => {
-    const userCredentials = await createUserWithEmailAndPassword(auth, values.email, values.password);
-    console.log('User Credentials: ', userCredentials);
+  const registerUser = (values: AuthValues) => {
+    axios({
+      method: 'POST',
+      url: `${INTERNAL_API_URL}/admin`,
+      data: values
+    }).then(({ data }) => {
+      // TODO: Implementar notificaciones
+      if (data.ok) {
+        setUser({ logged: true, email: data.user.email, uid: data.user.uid });
+      }
+    })
+  }
 
-    const user = userCredentials.user;
-    console.log('USER!! ', user);
-    setUser({ logged: true, email: user.email, uid: user.uid });
-    // setUser({ logged: true, email: '', uid: '' })
+  const loginUser = (values: AuthValues) => {
+    axios({
+      method: 'POST',
+      url: `${INTERNAL_API_URL}/admin`,
+      data: values
+    }).then(({ data }) => {
+      // TODO: Implementar notificaciones
+      if (data.ok) {
+        setUser({ logged: true, email: data.user.email, uid: data.user.uid });
+      }
+    })
   }
 
   return (
-    <AuthContext.Provider value={{ user, registerUser }}>
+    <AuthContext.Provider value={{ user, registerUser, loginUser }}>
       {children}
     </AuthContext.Provider>
   )
