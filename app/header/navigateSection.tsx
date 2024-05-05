@@ -1,10 +1,13 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import styles from "./header.module.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { ImCart } from "react-icons/im";
 import { useCartContext } from '../../contexts/cartContext';
+import CommonButton from "../components/button";
+import { useAuthContext } from "@/contexts/authContext";
 
 // Diferentes secciones en el Header de navegación
 const SECTIONS: { title: string; href: string; icon: boolean }[] = [
@@ -15,8 +18,25 @@ const SECTIONS: { title: string; href: string; icon: boolean }[] = [
 
 const NavigateSection = () => {
   const pathName = usePathname();
-
   const { cart } = useCartContext();
+  const { logout, user } = useAuthContext();
+  const router = useRouter();
+
+  const [popoverOpen, setPopoverOpen] = useState(false);
+
+  const togglePopover = () => {
+    setPopoverOpen(!popoverOpen);
+  };
+  
+  const handleLogin = () => {
+    setPopoverOpen(false);
+    router.push('/admin');
+  };
+
+  const handleLogout = () => {
+    setPopoverOpen(false);
+    return logout();
+  }
 
   return (
     <div className={styles.navigateSection}>
@@ -38,6 +58,35 @@ const NavigateSection = () => {
           <p className={styles['cart-section-count']}>{cart.length}</p>
         </div>
       </Link>
+      <CommonButton
+        label="Cuenta"
+        action={togglePopover}
+        className={`primary-button ${styles['popover-button']}`}
+      />
+      <div className={styles.popoverContainer}>
+        {popoverOpen && (
+          <div className={styles.popoverContent} style={{ zIndex: 2 }}>
+            <CommonButton
+              label="Ingresar"
+              disabled={user.logged}
+              action={handleLogin}
+              className={''}
+            />
+            <CommonButton
+              label="Administración"
+              disabled={!user.logged}
+              action={() => router.push('/admin')}
+              className={pathName === '/admin' ? styles.sectionActive : ''}
+            />
+            <CommonButton
+              label="Cerrar Sesión"
+              disabled={!user.logged}
+              action={handleLogout}
+              className={''}
+            />
+          </div>
+        )}
+      </div>
     </div>
   )
 };

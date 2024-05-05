@@ -57,5 +57,42 @@
 .cart-section-count {
   margin: 0 5px;
   color: var(--btn-secondary-end-color);
-  /* color: var(--dark-text-color); */
+}
+
+/* Relacionado al POPOVER */
+.popoverContainer {
+  position: relative;
+}
+
+.popover-button {
+  width: 17%;
+  height: 47%;
+}
+
+.popoverContent {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 3; 
+}
+
+.popoverContent button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+}
+
+.popoverContent button:hover {
+  background-color: #f0f0f0;
 }

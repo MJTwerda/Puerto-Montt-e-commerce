@@ -18,6 +18,7 @@
   --btn-primary-bg-colors: linear-gradient(to right, var(--dark-text-color), var(--btn-primary-end-color));
   --btn-secondary-bg-colors: linear-gradient(to right, var(--btn-secondary-start-color), var(--btn-secondary-end-color));
   --card-product-details: rgb(251, 249, 249, 0.35);
+  --btn-disabled: rgba(244, 158, 158, 0.35);
   /* Navigation */
   --section-active-end-bg: #fbe9e3;
   --section-active-bg: linear-gradient(to right, var(--btn-secondary-start-color), var(--section-active-end-bg));
@@ -62,6 +63,11 @@ nav img {
 button:hover,
 input[type="submit"]:hover {
   cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  background: var(--btn-disabled);
 }
 
 .submit-button,

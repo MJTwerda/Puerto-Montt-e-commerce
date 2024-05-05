@@ -10,6 +10,7 @@ type Props = {
   open: boolean;
 }
 
+// TODO: Limpiar código
 const LoginFormModal = (props: Props) => {
   const { registerUser, loginUser } = useAuthContext();
   const [formValue, setFormValue] = useState({
@@ -38,7 +39,8 @@ const LoginFormModal = (props: Props) => {
     >
       <div className={styles["modal-content"]}>
         <h3 className={styles['title']}>Login</h3>
-        <section className={styles['form-container']}>
+        <p className={styles['title']}>Debes completar todos los campos para poder continuar</p>
+        <form onSubmit={(e: any) => e.preventDefault()} className={styles['form-container']}>
           {LOGIN_FIELDS.map(field => (
             <input
               key={field.name}
@@ -55,21 +57,23 @@ const LoginFormModal = (props: Props) => {
           <div className={modalStyles['modal-actions-container']}>
             <CommonButton
               label="Cancelar"
-              action={() => router.back()}
+              action={() => router.push('/')}
               className={`${modalStyles['action-button']} secondary-button`}
             />
             <CommonButton
               label="Ingresar"
+              disabled={!formValue.email || !formValue.password}
               action={() => loginUser({...formValue, motive: 'login'})}
               className={`${modalStyles['action-button']} primary-button`}
             />
             <CommonButton
-              label="Registrarse"
+              label="Crear Cuenta"
+              disabled={!formValue.email || !formValue.password}
               action={() => registerUser({...formValue, motive: 'register'})}
               className={`${modalStyles['action-button']} primary-button`}
             />
           </div>
-        </section>
+        </form>
 
       </div>
     </div>
