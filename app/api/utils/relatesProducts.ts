@@ -5,7 +5,7 @@ export const setImageURL = (productList: DocumentData) => {
   const formattedProductList = productList.map((product: Product) => {
     return product = {
       ...product,
-      images: [`${process.env.FIREBASE_STORAGE_URL}/${product.images[0]}`]
+      images: [`${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_URL}/${product.images[0]}`]
     }
   });
   return formattedProductList;
@@ -14,6 +14,6 @@ export const setImageURL = (productList: DocumentData) => {
 export const individualSetImageURL = (product: DocumentData) => {
   return {
     ...product,
-    images: [`${process.env.FIREBASE_STORAGE_URL}/${product.images[0]}`]
+    images: [`${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_URL}/${product.images[0]}`]
   }
 }

@@ -3,25 +3,29 @@ import React, { useState } from "react";
 import styles from './admin.module.css';
 import modalStyles from '../components/modal.module.css';
 import CommonButton from '../components/button';
+import { useAuthContext } from '../../contexts/authContext';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   open: boolean;
 }
 
 const LoginFormModal = (props: Props) => {
+  const { registerUser } = useAuthContext();
   const [formValue, setFormValue] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: ''
   });
+  const router = useRouter();
 
   const LOGIN_FIELDS = [
     { name: 'firstName', type: 'text', placeholder: 'Ingresa tu nombre', required: true },
     { name: 'lastName', type: 'text', placeholder: 'Ingresa tu apellido', required: true },
     { name: 'email', type: 'email', placeholder: 'Ingresa tu email', required: true },
     { name: 'password', type: 'password', placeholder: 'Ingresa tu contraseña', required: true }
-  ]
+  ];
 
   const handleConfirm = () => {
     console.log('Click en Confirm')
@@ -38,7 +42,7 @@ const LoginFormModal = (props: Props) => {
   const handleLogin = (e: any) => {
     e.preventDefault();
     console.log('Usuario se logea con:: ', formValue);
-  }
+  };
 
   return (
     <div
@@ -63,14 +67,19 @@ const LoginFormModal = (props: Props) => {
 
           <div className={modalStyles['modal-actions-container']}>
             <CommonButton
-              label="Confirmar"
+              label="Cancelar"
+              action={() => router.back()}
+              className={`${modalStyles['action-button']} secondary-button`}
+            />
+            <CommonButton
+              label="Logearse"
               action={handleConfirm}
               className={`${modalStyles['action-button']} primary-button`}
             />
             <CommonButton
-              label="Cancelar"
-              action={handleClose}
-              className={`${modalStyles['action-button']} secondary-button`}
+              label="Registrarse"
+              action={() => registerUser(formValue)}
+              className={`${modalStyles['action-button']} primary-button`}
             />
           </div>
         </form>

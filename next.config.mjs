@@ -7,9 +7,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: `${process.env.FIREBASE_STORAGE_HOSTNAME}`,
+        hostname: `${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_HOSTNAME}`,
         port: '',
-        pathname: `/${process.env.FIREBASE_PATHNAME}/**`
+        pathname: `/${process.env.NEXT_PUBLIC_FIREBASE_PATHNAME}/**`
       }
     ]
   }

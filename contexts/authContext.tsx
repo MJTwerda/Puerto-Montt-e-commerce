@@ -1,5 +1,7 @@
 'use client'
+import { auth } from '../firebase/config';
 import React, { createContext, useContext, useState } from "react";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 type UserState = {
   logged: boolean;
@@ -9,10 +11,13 @@ type UserState = {
 
 type AuthContextType = {
   user: UserState;
+  registerUser: (values: { email: string, password: string }) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
-  user: { logged: false, email: null, uid: null }
+  user: { logged: false, email: null, uid: null },
+  registerUser: () => { }
+  
 });
 
 export const useAuthContext = () => {
@@ -30,8 +35,18 @@ const AuthProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
     uid: null
   });
 
+  const registerUser = async (values: { email: string, password: string }) => {
+    const userCredentials = await createUserWithEmailAndPassword(auth, values.email, values.password);
+    console.log('User Credentials: ', userCredentials);
+
+    const user = userCredentials.user;
+    console.log('USER!! ', user);
+    setUser({ logged: true, email: user.email, uid: user.uid });
+    // setUser({ logged: true, email: '', uid: '' })
+  }
+
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={{ user, registerUser }}>
       {children}
     </AuthContext.Provider>
   )
