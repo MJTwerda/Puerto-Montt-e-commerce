@@ -23,7 +23,8 @@ const UpdateProductForm = ({ product }: Props) => {
     slug: product?.slug,
     status: product?.status
   });
-  const [ productImage, setProductImage ] = useState('');
+  // TODO: Agregar visualización de imágenes del producto
+  // const [ productImage, setProductImage ] = useState('');
 
   useEffect(() => {
     if (product) {
@@ -45,7 +46,6 @@ const UpdateProductForm = ({ product }: Props) => {
   }
 
   const handleFileInputChange = async(e: any) => {
-    console.log('E target Image -> ', e.target.files);
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
 
@@ -57,7 +57,13 @@ const UpdateProductForm = ({ product }: Props) => {
       });
   
       if (response.data.ok) {
-        console.log('🟢 Todo salió bien -> ', response.data);
+        setFormValue({...formValue, images: [response.data.fileURL]});
+        // Actualización de información del producto
+        await axios({
+          method: 'PUT',
+          url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+          data: {...product, images: [response.data.fileURL]}
+        })
       }
     } catch (error) {
       console.error('Error al cargar el archivo:', error);

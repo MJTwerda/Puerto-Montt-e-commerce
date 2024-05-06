@@ -28,7 +28,7 @@ const NavigateSection = () => {
     setPopoverOpen(!popoverOpen);
   };
   
-  const handleLogin = () => {
+  const handleGoToAdmin = () => {
     setPopoverOpen(false);
     router.push('/admin');
   };
@@ -69,13 +69,13 @@ const NavigateSection = () => {
             <CommonButton
               label="Ingresar"
               disabled={user.logged}
-              action={handleLogin}
+              action={handleGoToAdmin}
               className={''}
             />
             <CommonButton
               label="Administración"
               disabled={!user.logged}
-              action={() => router.push('/admin')}
+              action={handleGoToAdmin}
               className={pathName === '/admin' ? styles.sectionActive : ''}
             />
             <CommonButton

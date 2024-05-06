@@ -7,17 +7,15 @@ export async function POST(request: NextRequest) {
 
   const formData = await request.formData();
   const file = formData.get('file') as File;
-  // const file = await request.json();
-  console.log('File Data:: ', file);
 
   if (file) {
-    console.log('🙌🏼 🙌🏼 🙌🏼 Archivo recibido: ', file.name);
     const refStorage = ref(storage, file.name);
     const fileSnapshot = await uploadBytes(refStorage, file);
     const fileURL = await getDownloadURL(fileSnapshot.ref);
     
-    console.log('URL de Imagen subida --> ', fileURL);
-    return NextResponse.json({ ok: 1, message: 'Imagen subida exitosamente' }, { status: 200 });
+    // Se obtiene solo el valor de la imagen de la colección
+    const productFileValue = fileURL.substring(fileURL.indexOf(`${file.name}`));
+    return NextResponse.json({ ok: 1, message: 'Imagen subida exitosamente', fileURL: productFileValue }, { status: 200 });
   } else {
     return NextResponse.json({
       ok: 0,

@@ -21,6 +21,9 @@ const ProductListPage = () => {
   const getProductsByCategory = useCallback(async () => {
     const filteredProductList = await fetch(`${INTERNAL_API_URL}/product-list/${selectedCategories}`, {
       cache: 'no-store',
+      // next: {
+      //   revalidate: 15000
+      // }
     }).then(result => result.json());
     setProductList(filteredProductList)
   }, [selectedCategories]);
