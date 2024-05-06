@@ -16,7 +16,6 @@ const UpdateProductForm = ({ product }: Props) => {
   const [formValue, setFormValue] = useState({
     category: '',
     description: '',
-    images: product?.images,
     inStock: 0,
     name: '',
     price: 0,
@@ -24,14 +23,13 @@ const UpdateProductForm = ({ product }: Props) => {
     status: product?.status
   });
   // TODO: Agregar visualización de imágenes del producto
-  // const [ productImage, setProductImage ] = useState('');
+  const [ productImages, setProductImages ] = useState<string[]>([]);
 
   useEffect(() => {
     if (product) {
       setFormValue({
         category: product?.category,
         description: product?.description,
-        images: product?.images, // TODO: Agregar campo de imagen al formulario
         inStock: product?.inStock,
         name: product?.name,
         price: product?.price,
@@ -57,7 +55,7 @@ const UpdateProductForm = ({ product }: Props) => {
       });
   
       if (response.data.ok) {
-        setFormValue({...formValue, images: [response.data.fileURL]});
+        setProductImages([response.data.fileURL]);
         // Actualización de información del producto
         await axios({
           method: 'PUT',
@@ -75,7 +73,7 @@ const UpdateProductForm = ({ product }: Props) => {
     await axios({
       method: 'PUT',
       url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
-      data: formValue
+      data: {...formValue, images: productImages}
     }).then(({ data }) => {
       if (data.ok) {
         //TODO: Mostrar notificación de eliminación exitosa
