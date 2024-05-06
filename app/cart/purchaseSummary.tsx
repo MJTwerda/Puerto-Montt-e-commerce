@@ -38,6 +38,8 @@ const PurchaseSummary = () => {
             alt={`${product.name} image`}
             src={`${product.images[0]}`}
             height={100} width={100}
+            placeholder='blur'
+            blurDataURL={`${product.images[0]}`}
           />
           <div className={styles['description-column']}>
             <p>Name: {product.name}</p>

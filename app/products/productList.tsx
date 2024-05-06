@@ -26,6 +26,8 @@ const ProductList = ({ filteredProductList, handleNavigateToDetails }: Props) =>
               alt="featured product"
               width={220}
               height={220}
+              placeholder='blur'
+              blurDataURL={`${product.images[0]}`}
             />
             <h5 className={styles.productCardInfo}>{product.name}</h5>
             <h3 className={styles.productCardInfo}>${product.price}</h3>

@@ -28,6 +28,8 @@ const ProductDetailCard = ({ productDetailsParam }: Props) => {
             alt="featured product"
             width={340}
             height={340}
+            placeholder='blur'
+            blurDataURL={`${productDetailsParam.images[0]}`}
           />
           <DetailsActions product={productDetailsParam} />
         </div>

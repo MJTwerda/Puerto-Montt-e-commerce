@@ -51,6 +51,8 @@ const ProductTable = ({ tableHeaders }: Props) => {
               alt={`${product.name} image`}
               width={80}
               height={80}
+              placeholder='blur'
+              blurDataURL={`${product.images[0]}`}
             />
           </td>
           <td>{product.description}</td>

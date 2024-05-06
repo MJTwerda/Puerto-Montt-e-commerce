@@ -26,6 +26,8 @@ export default async function Home() {
         alt="featured product"
         width={450}
         height={450}
+        placeholder='blur'
+        blurDataURL={`${featuredProduct[randomIndex].images[0]}`}
       />
     </div>
   );
