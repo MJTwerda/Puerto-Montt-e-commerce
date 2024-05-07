@@ -4,7 +4,6 @@ import React, { useEffect, useCallback, useState } from "react";
 import styles from './admin.module.css';
 import axios from 'axios';
 import Image from 'next/image';
-import { INTERNAL_API_URL } from '@/constants/commons';
 import { MOCK_CATEGORIES } from '@/constants/products';
 import ActionsCell from './actionsCell';
 
@@ -18,7 +17,7 @@ const ProductTable = ({ tableHeaders }: Props) => {
   const getAllProducts = useCallback(async () => {
     await axios({
       method: 'GET',
-      url: `${INTERNAL_API_URL}/product-list/${MOCK_CATEGORIES.todos.value}`
+      url: `http://${process.env.VERCEL_URL}/product-list/${MOCK_CATEGORIES.todos.value}`
     }).then(({ data }) => {
       // TODO: Revisa cómo hacer para obtener la info actualizada al volver a esta pantalla desde update
       return setProductList(data);

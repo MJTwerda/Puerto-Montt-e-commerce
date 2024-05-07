@@ -5,7 +5,6 @@ import styles from './updateProduct.module.css';
 import { Product } from "@/interfaces/product";
 import CommonButton from "@/app/components/button";
 import axios from "axios";
-import { INTERNAL_API_URL } from "@/constants/commons";
 
 interface Props {
   product: Product;
@@ -48,7 +47,7 @@ const UpdateProductForm = ({ product }: Props) => {
     formData.append('file', e.target.files[0]);
 
     try {
-      const response = await axios.post(`${INTERNAL_API_URL}/product-file`, formData, {
+      const response = await axios.post(`http://${process.env.VERCEL_URL}/product-file`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -59,7 +58,7 @@ const UpdateProductForm = ({ product }: Props) => {
         // Actualización de información del producto
         await axios({
           method: 'PUT',
-          url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+          url: `http://${process.env.VERCEL_URL}/product-details/${product.slug}`,
           data: {...product, images: [response.data.fileURL]}
         })
       }
@@ -72,7 +71,7 @@ const UpdateProductForm = ({ product }: Props) => {
     e.preventDefault();
     await axios({
       method: 'PUT',
-      url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+      url: `http://${process.env.VERCEL_URL}/product-details/${product.slug}`,
       data: {...formValue, images: productImages}
     }).then(({ data }) => {
       if (data.ok) {

@@ -9,7 +9,6 @@ import {
 } from 'firebase/auth';
 import { AuthValues } from '@/interfaces/contactInfo';
 // import axios from 'axios';
-// import { INTERNAL_API_URL } from '@/constants/commons';
 
 type UserState = {
   logged: boolean;
@@ -64,7 +63,7 @@ const AuthProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
     );
     // await axios({
     //   method: 'POST',
-    //   url: `${INTERNAL_API_URL}/admin`,
+    //   url: `http://${process.env.VERCEL_URL}/admin`,
     //   data: values
     // })
     // .then(({ data }) => {
@@ -85,7 +84,7 @@ const AuthProvider = ({ children }: Readonly<{ children: React.ReactNode }>) => 
     );
     // await axios({
     //   method: 'POST',
-    //   url: `${INTERNAL_API_URL}/admin`,
+    //   url: `http://${process.env.VERCEL_URL}/admin`,
     //   data: values
     // })
     // .then(({ data }) => {

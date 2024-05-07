@@ -6,7 +6,6 @@ import ProductList from './productList';
 import { MOCK_CATEGORIES } from '../../constants/products';
 import { Product } from '../../interfaces/product';
 import { useRouter } from 'next/navigation'
-import { INTERNAL_API_URL } from "@/constants/commons";
 
 const ProductListPage = () => {
   const router = useRouter();
@@ -19,7 +18,7 @@ const ProductListPage = () => {
    * Se obtiene el listado de productos según la categoría y se setea en estado productList
    */
   const getProductsByCategory = useCallback(async () => {
-    const filteredProductList = await fetch(`${INTERNAL_API_URL}/product-list/${selectedCategories}`, {
+    const filteredProductList = await fetch(`http://${process.env.VERCEL_URL}/product-list/${selectedCategories}`, {
       cache: 'no-store',
       // next: {
       //   revalidate: 15000
