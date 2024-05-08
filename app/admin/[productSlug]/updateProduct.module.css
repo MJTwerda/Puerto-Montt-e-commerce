@@ -38,3 +38,10 @@
   width: 13%;
   margin-bottom: 20px;
 }
+
+/* Columna de imágenes */
+.files-div-container {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+}

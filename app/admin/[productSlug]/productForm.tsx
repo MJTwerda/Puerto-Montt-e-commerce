@@ -7,6 +7,7 @@ import CommonButton from "@/app/components/button";
 import axios from "axios";
 import { INTERNAL_API_URL } from "@/constants/commons";
 import { MOCK_CATEGORIES } from "@/constants/products";
+import Image from "next/image";
 
 interface Props {
   product?: Product;
@@ -51,6 +52,7 @@ const ProductForm = ({ product }: Props) => {
     formData.append('file', e.target.files[0]);
 
     try {
+      // Se crea nueva imagen en Storage
       const response = await axios.post(`${INTERNAL_API_URL}/product-file`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -82,6 +84,7 @@ const ProductForm = ({ product }: Props) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
+    // Caso de modificación
     if (product) {
       await axios({
         method: 'PUT',
@@ -157,18 +160,6 @@ const ProductForm = ({ product }: Props) => {
             value={formValue['inStock']}
             className={styles['common-field']}
           />
-          {/* Category TODO: Cambiar por selector de categorías determinadas */}
-          {/* <input
-            type='text'
-            disabled // TODO: Por el momento de deshabilita campo para evitar categorías inexistentes
-            id='category'
-            name='category'
-            required
-            placeholder='Categoría'
-            onChange={handleInputChange}
-            value={formValue['category']}
-            className={styles['common-field']}
-          /> */}
           <select
             id='category'
             name='category'
@@ -235,15 +226,21 @@ const ProductForm = ({ product }: Props) => {
           </div>
 
         </div>
-        {/* Image */}
-        <input
-          style={{ height: '22px' }}
-          type='file'
-          onChange={handleFileInputChange}
-        // id='images'
-        // name='images'
-        // value={productImage}
-        />
+        <div className={styles['files-div-container']}>
+          {/* Image */}
+          <input
+            style={{ height: '22px', marginTop: '27px' }}
+            type='file'
+            onChange={handleFileInputChange}
+          />
+          {productImages.length ? (
+            <Image 
+              alt="Imagen de producto" 
+              src={`${process.env.NEXT_PUBLIC_FIREBASE_STORAGE_URL}/${productImages[0]}`} 
+              width={300} height={300} 
+            />
+          ) : null}
+        </div>
       </form>
     </section>
   )
