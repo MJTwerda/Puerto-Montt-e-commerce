@@ -14,9 +14,7 @@ const AdminPage = async () => {
   return (
     <section>
       <h1 className={styles['admin-title']}>Página de administración</h1>
-      <div className={styles["table-container"]}>
-        <ProductTable tableHeaders={tableHeaders} />
-      </div>
+      <ProductTable tableHeaders={tableHeaders} />
     </section>
   )
 };

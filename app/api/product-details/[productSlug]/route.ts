@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/config";
-import { validateProduct } from "./validators";
+import { validateProduct } from "../validators";
 import { individualSetImageURL } from "../../utils/relatesProducts";
 
 interface Params {

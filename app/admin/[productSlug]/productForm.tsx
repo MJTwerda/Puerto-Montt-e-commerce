@@ -6,12 +6,13 @@ import { Product } from "@/interfaces/product";
 import CommonButton from "@/app/components/button";
 import axios from "axios";
 import { INTERNAL_API_URL } from "@/constants/commons";
+import { MOCK_CATEGORIES } from "@/constants/products";
 
 interface Props {
-  product: Product;
+  product?: Product;
 }
 
-const UpdateProductForm = ({ product }: Props) => {
+const ProductForm = ({ product }: Props) => {
   const router = useRouter();
   const [formValue, setFormValue] = useState({
     category: '',
@@ -20,10 +21,10 @@ const UpdateProductForm = ({ product }: Props) => {
     name: '',
     price: 0,
     slug: product?.slug,
-    status: product?.status
+    status: product?.status || 'INACTIVE'
   });
   // TODO: Agregar visualización de imágenes del producto
-  const [ productImages, setProductImages ] = useState<string[]>([]);
+  const [productImages, setProductImages] = useState<string[]>([]);
 
   useEffect(() => {
     if (product) {
@@ -43,7 +44,7 @@ const UpdateProductForm = ({ product }: Props) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
   }
 
-  const handleFileInputChange = async(e: any) => {
+  const handleFileInputChange = async (e: any) => {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
 
@@ -53,15 +54,20 @@ const UpdateProductForm = ({ product }: Props) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-  
+
       if (response.data.ok) {
         setProductImages([response.data.fileURL]);
         // Actualización de información del producto
-        await axios({
-          method: 'PUT',
-          url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
-          data: {...product, images: [response.data.fileURL]}
-        })
+        if (product) {
+          await axios({
+            method: 'PUT',
+            url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+            data: { ...product, images: [response.data.fileURL] }
+          })
+        }
+        else {
+          // Creación de un nuevo proyecto
+        }
       }
     } catch (error) {
       console.error('Error al cargar el archivo:', error);
@@ -70,16 +76,30 @@ const UpdateProductForm = ({ product }: Props) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    await axios({
-      method: 'PUT',
-      url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
-      data: {...formValue, images: productImages}
-    }).then(({ data }) => {
-      if (data.ok) {
-        //TODO: Mostrar notificación de eliminación exitosa
-        alert(`${data.message}`);
-      }
-    })
+    if (product) {
+      await axios({
+        method: 'PUT',
+        url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
+        data: { ...formValue, images: productImages }
+      }).then(({ data }) => {
+        if (data.ok) {
+          //TODO: Mostrar notificación de eliminación exitosa
+          alert(`${data.message}`);
+        }
+      })
+    } else {
+      // Creación de un nuevo proyecto
+      await axios({
+        method: 'POST',
+        url: `${INTERNAL_API_URL}/product-details`,
+        data: { ...formValue, images: productImages, status: 'ACTIVE' }
+      }).then(({ data }) => {
+        if (data.ok) {
+          //TODO: Mostrar notificación de eliminación exitosa
+          alert(`${data.message}`);
+        }
+      })
+    }
   }
 
   return (
@@ -130,7 +150,7 @@ const UpdateProductForm = ({ product }: Props) => {
             className={styles['common-field']}
           />
           {/* Category TODO: Cambiar por selector de categorías determinadas */}
-          <input
+          {/* <input
             type='text'
             disabled // TODO: Por el momento de deshabilita campo para evitar categorías inexistentes
             id='category'
@@ -140,7 +160,28 @@ const UpdateProductForm = ({ product }: Props) => {
             onChange={handleInputChange}
             value={formValue['category']}
             className={styles['common-field']}
-          />
+          /> */}
+          <select
+            id='category'
+            name='category'
+            required={true}
+            disabled={product?.slug ? true : false}
+            // placeholder='Categoría'
+            onChange={handleInputChange}
+            value={formValue['category']}
+            className={styles['common-field']}
+            style={{ width: '92%' }}
+          >
+            <option value='' disabled>Categoría</option>
+            {Object.keys(MOCK_CATEGORIES).map(category => (
+              <option
+                key={MOCK_CATEGORIES[category].value}
+                value={MOCK_CATEGORIES[category].value}
+              >
+                {MOCK_CATEGORIES[category].label}
+              </option>
+            ))}
+          </select>
           {/* Description */}
           <textarea
             id='description'
@@ -153,24 +194,28 @@ const UpdateProductForm = ({ product }: Props) => {
             value={formValue['description']}
             className={styles['common-field']}
           />
-          {/* Slug */}
-          <input
-            type='text'
-            disabled
-            placeholder='Slug'
-            onChange={handleInputChange}
-            value={formValue['slug']}
-            className={styles['common-field']}
-          />
-          {/* Status */}
-          <input
-            type='text'
-            disabled
-            placeholder='Status'
-            onChange={handleInputChange}
-            value={formValue['status']}
-            className={styles['common-field']}
-          />
+          {product ? (
+            <>
+              {/* Slug */}
+              <input
+                type='text'
+                disabled
+                placeholder='Slug'
+                onChange={handleInputChange}
+                value={formValue['slug']}
+                className={styles['common-field']}
+              />
+              {/* Status */}
+              <input
+                type='text'
+                disabled
+                placeholder='Status'
+                onChange={handleInputChange}
+                value={formValue['status']}
+                className={styles['common-field']}
+              />
+            </>
+          ) : null}
 
           <div className={styles['action-btn-container']}>
             <input type="submit" value="Enviar" className={`submit-button ${styles['action-button']}`} />
@@ -178,17 +223,17 @@ const UpdateProductForm = ({ product }: Props) => {
 
         </div>
         {/* Image */}
-        <input 
-          // style={{ width: '100px', height: '50px' }}
+        <input
+          style={{ height: '22px' }}
           type='file'
           onChange={handleFileInputChange}
-          // id='images'
-          // name='images'
-          // value={productImage}
+        // id='images'
+        // name='images'
+        // value={productImage}
         />
       </form>
     </section>
   )
 };
 
-export default UpdateProductForm;
+export default ProductForm;

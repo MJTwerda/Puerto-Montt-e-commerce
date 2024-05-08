@@ -1,5 +1,5 @@
 import { INTERNAL_API_URL } from "@/constants/commons";
-import UpdateProductForm from "./updateProductForm";
+import ProductForm from "./productForm";
 
 export const metadata = {
   title: 'Update an active product',
@@ -20,7 +20,7 @@ const UpdateProductPage = async ({ params }: Props) => {
   return (
     <section>
       <h1>Bienvenido a pantalla de modificación</h1>
-      <UpdateProductForm product={productDetails} />
+      <ProductForm product={productDetails} />
     </section>
 
   )

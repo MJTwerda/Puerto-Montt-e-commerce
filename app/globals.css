@@ -128,10 +128,12 @@ button:disabled {
 
 input[type=text],
 input[type=number],
+input[type=select],
 input[type=email],
 input[type=password],
 input[type=submit],
 input[type=search],
+select,
 textarea {
   align-self: center;
   background-color: var(--input-background-light);
@@ -145,11 +147,13 @@ textarea {
 
 input[type=text]:focus,
 input[type=number]:focus,
+input[type=select]:focus,
 input[type=email]:focus,
 input[type=password]:focus,
 input[type=submit]:focus,
 input[type=search]:focus,
 textarea:focus,
+select:focus,
 button:focus {
   outline: 0.5px solid #763c3c;
   outline-color: #3c4e76;
