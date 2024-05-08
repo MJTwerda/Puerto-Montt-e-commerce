@@ -65,6 +65,7 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+input[type=submit]:disabled,
 button:disabled {
   cursor: default;
   background: var(--btn-disabled);

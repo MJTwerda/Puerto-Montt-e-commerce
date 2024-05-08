@@ -24,7 +24,8 @@ const ProductForm = ({ product }: Props) => {
     status: product?.status || 'INACTIVE'
   });
   // TODO: Agregar visualización de imágenes del producto
-  const [productImages, setProductImages] = useState<string[]>([]);
+  const [ productImages, setProductImages ] = useState<string[]>([]);
+  const [ loading, setLoading ] = useState(false);
 
   useEffect(() => {
     if (product) {
@@ -45,6 +46,7 @@ const ProductForm = ({ product }: Props) => {
   }
 
   const handleFileInputChange = async (e: any) => {
+    setLoading(true);
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
 
@@ -71,11 +73,15 @@ const ProductForm = ({ product }: Props) => {
       }
     } catch (error) {
       console.error('Error al cargar el archivo:', error);
+      setLoading(false);
+    } finally {
+      setLoading(false);
     }
   }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
     if (product) {
       await axios({
         method: 'PUT',
@@ -86,7 +92,8 @@ const ProductForm = ({ product }: Props) => {
           //TODO: Mostrar notificación de eliminación exitosa
           alert(`${data.message}`);
         }
-      })
+      });
+      setLoading(false);
     } else {
       // Creación de un nuevo proyecto
       await axios({
@@ -98,7 +105,8 @@ const ProductForm = ({ product }: Props) => {
           //TODO: Mostrar notificación de eliminación exitosa
           alert(`${data.message}`);
         }
-      })
+      });
+      setLoading(false);
     }
   }
 
@@ -218,7 +226,12 @@ const ProductForm = ({ product }: Props) => {
           ) : null}
 
           <div className={styles['action-btn-container']}>
-            <input type="submit" value="Enviar" className={`submit-button ${styles['action-button']}`} />
+            <input 
+              type="submit" 
+              disabled={loading}
+              value="Enviar" 
+              className={`submit-button ${styles['action-button']}`} 
+            />
           </div>
 
         </div>
