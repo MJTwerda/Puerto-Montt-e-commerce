@@ -2,6 +2,7 @@ import styles from './page.module.css';
 import Image from "next/image";
 import { MOCK_CATEGORIES } from '../constants/products';
 import FeaturedProduct from "./products/featuredProduct";
+import { INTERNAL_API_URL } from '@/constants/commons';
 
 export const metadata = {
   title: 'Puerto Montt - Home',
@@ -10,7 +11,7 @@ export const metadata = {
 // Página principal, se obtiene los productos y se muestra un producto destacado
 export default async function Home() {
   // Busca el listado de productos
-  const featuredProduct = await fetch(`http://${process.env.VERCEL_URL}/product-list/${MOCK_CATEGORIES.todos.value}`, {
+  const featuredProduct = await fetch(`${INTERNAL_API_URL}/product-list/${MOCK_CATEGORIES.todos.value}`, {
     cache: 'no-store',
   }).then(result => result.json());
 

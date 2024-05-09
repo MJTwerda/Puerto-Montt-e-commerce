@@ -1,4 +1,5 @@
-import UpdateProductForm from "./updateProductForm";
+import { INTERNAL_API_URL } from "@/constants/commons";
+import ProductForm from "./productForm";
 
 export const metadata = {
   title: 'Update an active product',
@@ -11,7 +12,7 @@ interface Props {
 
 const UpdateProductPage = async ({ params }: Props) => {
 
-  const productDetails = await fetch(`http://${process.env.VERCEL_URL}/product-details/${params.productSlug}`, {
+  const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productSlug}`, {
     cache: 'no-store',
   })
     .then(result => result.json());
@@ -19,7 +20,7 @@ const UpdateProductPage = async ({ params }: Props) => {
   return (
     <section>
       <h1>Bienvenido a pantalla de modificación</h1>
-      <UpdateProductForm product={productDetails} />
+      <ProductForm product={productDetails} />
     </section>
 
   )

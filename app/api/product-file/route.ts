@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db, storage } from "@/firebase/config";
+import { storage } from "@/firebase/config";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 export async function POST(request: NextRequest) {
@@ -22,5 +21,4 @@ export async function POST(request: NextRequest) {
       message: "Error al subir imagen de producto",
     }, { status: 400 });
   }
-
 }

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import styles from './about.module.css';
 import axios from "axios";
+import { INTERNAL_API_URL } from '../../constants/commons';
 
 const ContactForm = () => {
   const [ formValue, setFormValue ] = useState({
@@ -15,7 +16,7 @@ const ContactForm = () => {
 
   const handleSubmitMessage = async(event: any) => {
     event.preventDefault();
-    const sendMessage = await axios(`http://${process.env.VERCEL_URL}/about-us`, {
+    const sendMessage = await axios(`${INTERNAL_API_URL}/about-us`, {
       method: 'POST',
       data: formValue
     });

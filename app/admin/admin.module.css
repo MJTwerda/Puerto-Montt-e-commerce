@@ -23,6 +23,17 @@
   display: contents;
 }
 
+.container-btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.new-product-btn {
+  margin-bottom: 12px;
+  width: 17%
+}
+
 /* Table */
 .table-container {
   max-height: 500px; 

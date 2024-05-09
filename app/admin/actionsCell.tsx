@@ -7,6 +7,7 @@ import CommonModal from '../components/commonModal';
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Product } from "@/interfaces/product";
+import { INTERNAL_API_URL } from "@/constants/commons";
 import axios from "axios";
 
 interface Props {
@@ -35,7 +36,7 @@ const ActionsCell = ({ product }: Props) => {
   const handleDeleteProduct = async () => {
     setOpenDeleteModal(false);
     await axios({
-      url: `http://${process.env.VERCEL_URL}/product-details/${product.slug}`,
+      url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
       method: 'DELETE'
     }).then(({ data }) => {
       if (data.ok) {

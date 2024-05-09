@@ -1,6 +1,7 @@
 import React from "react";
 import { Suspense } from "react";
 import ProductDetailCard from './detailCard';
+import { INTERNAL_API_URL } from '../../../constants/commons';
 import CommonLoader from "@/app/components/commonLoader";
 
 export const metadata = {
@@ -14,7 +15,7 @@ interface Props {
 
 const ProductDetails = async ({ params }: Props) => {
   // TODO: Agregar mensaje en caso de no encontrar un registro
-  const productDetails = await fetch(`http://${process.env.VERCEL_URL}/product-details/${params.productDetails}`, {
+  const productDetails = await fetch(`${INTERNAL_API_URL}/product-details/${params.productDetails}`, {
     cache: 'no-cache'
   }).then(result => result.json());
 
