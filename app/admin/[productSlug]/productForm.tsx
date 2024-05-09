@@ -86,10 +86,14 @@ const ProductForm = ({ product }: Props) => {
     setLoading(true);
     // Caso de modificación
     if (product) {
+      const  formattedImages = productImages.length ? productImages : product.images.map(imageURL => {
+        return imageURL.replace(process.env.NEXT_PUBLIC_FIREBASE_STORAGE_URL + '/', '');
+      });
+
       await axios({
         method: 'PUT',
         url: `${INTERNAL_API_URL}/product-details/${product.slug}`,
-        data: { ...formValue, images: productImages }
+        data: { ...formValue, images: [...formattedImages] }
       }).then(({ data }) => {
         if (data.ok) {
           //TODO: Mostrar notificación de eliminación exitosa
